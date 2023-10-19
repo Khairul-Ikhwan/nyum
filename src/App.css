@@ -1,0 +1,43 @@
+/* Import fonts */
+
+@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&family=Raleway:wght@100;200;300;400;500;600;700;800;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+:root {
+  --primary: #104c64;
+  --secondary: #c6c8D0;
+  --buttons: #b6410f;
+  --dark: #0d1d25;
+  --pri-alt: #d59d80;
+  font-family: 'Roboto';
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+
+.page-wrapper {
+  background-color: lightblue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100dvh;
+  width: 100%;
+}
+
+.page-wrapper > * {
+  width: 100%;
+}
+
+header {
+  background-color: var(--primary);
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+
+  background-color: var(--primary);
+}
