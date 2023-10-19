@@ -4,7 +4,7 @@ import PageLayout from "./layouts/PageLayout";
 function App() {
   return (
     <>
-      <PageLayout />
+      <PageLayout>hello</PageLayout>
     </>
   );
 }

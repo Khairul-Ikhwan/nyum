@@ -6,19 +6,25 @@ export default function PageLayout({ children }) {
           display: "flex",
           flexDirection: "row",
           justifyContent: "space-between",
-          padding: "2%",
-          height: "fit-content",
+          color: "white",
         }}
       >
         <div>
-          <p>Logo goes here</p>
+          <p style={{ fontWeight: 700, fontSize: "var(--logo-text)" }}>Nyum</p>
         </div>
         <div>
           <p>nav menu goes here</p>
         </div>
       </header>
-      {children}
-      <footer>hello</footer>
+      <div className="children-wrapper">{children}</div>
+      <footer style={{ color: "white" }}>
+        <div>
+          <p style={{ fontWeight: 700, fontSize: "var(--logo-text)" }}>Nyum</p>
+          <p style={{ fontWeight: 300, fontSize: "var(--logo-text-small)" }}>
+            a platform by Kibar Digtal Pte Ltd
+          </p>
+        </div>
+      </footer>
     </div>
   );
 }
