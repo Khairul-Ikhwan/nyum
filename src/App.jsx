@@ -1,10 +1,14 @@
+import { Routes, Route } from "react-router";
 import "./App.css";
-import PageLayout from "./layouts/PageLayout";
+
+import HomePage from "./pages/homepage/HomePage";
 
 function App() {
   return (
     <>
-      <PageLayout>hello</PageLayout>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+      </Routes>
     </>
   );
 }

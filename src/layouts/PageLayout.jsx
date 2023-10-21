@@ -7,6 +7,7 @@ export default function PageLayout({ children }) {
           flexDirection: "row",
           justifyContent: "space-between",
           color: "white",
+          alignItems: "center",
         }}
       >
         <div>
