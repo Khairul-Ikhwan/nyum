@@ -21,7 +21,21 @@
 }
 
 button {
-  all: unset;
+  border-radius: 0.5rem;
+  border: 1px solid var(--White, #FFF);
+  background: var(--buttons);
+  max-width: fit-content;
+  padding: 2%;
+  color: white;
+
+  font-family: 'oxygen';
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+button:hover, button:focus {
+  background: var(--pri-alt);
 }
 
 a {
