@@ -155,13 +155,35 @@ footer {
 
   transform: translateY(-100%);
   animation: slide-in-top .3s ease-in forwards;
+
+  font-family: 'oxygen';
+
 }
 
 .navigation-menu ul {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  
 }
+
+.navigation-menu li {
+  position: relative;
+  padding: 10px 0;
+  cursor: pointer;
+  
+}
+
+.navigation-menu li:hover {
+  font-weight: bold;
+  color: var(--primary);
+  
+}
+
+.navigation-menu li:active {
+  color: var(--primary);
+}
+
 
 @media (min-width: 950px) {
   .page-wrapper > * {
@@ -181,7 +203,12 @@ footer {
 
     align-items: flex-end;
     padding: 5%;
+
+    transform: translateX(100%);
+  animation: slide-in .3s ease-in forwards;
   }
+
+  
 }
 
 /* keyframes animations*/
