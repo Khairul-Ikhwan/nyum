@@ -158,6 +158,7 @@ footer {
 
   font-family: 'oxygen';
 
+  gap: 25px;
 }
 
 .navigation-menu ul {
@@ -171,7 +172,6 @@ footer {
   position: relative;
   padding: 10px 0;
   cursor: pointer;
-  
 }
 
 .navigation-menu li:hover {
@@ -184,6 +184,24 @@ footer {
   font-weight: bold;
 }
 
+/* .navigation-menu ul::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: black;
+  position: relative;
+} */
+
+
+.navigation-menu .sub-menu p {
+  display: inline;
+}
+
+.navigation-menu .sub-menu p:not(:last-child)::after {
+  content: '|'; /* Insert a vertical bar between items */
+  margin: 0 10px; /* Adjust the spacing between the vertical bars */
+}
 
 @media (min-width: 950px) {
   .page-wrapper > * {
