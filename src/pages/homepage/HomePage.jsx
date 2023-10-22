@@ -1,5 +1,5 @@
 import Collection from "../../components/collection/Collection";
-import Hero from "../../components/heros/hero";
+import Hero from "../../components/heros/Hero";
 import PageLayout from "../../layouts/PageLayout";
 
 export default function HomePage() {
