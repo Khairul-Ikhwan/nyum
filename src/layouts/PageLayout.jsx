@@ -1,4 +1,13 @@
+import { useState } from "react";
+import Navigation from "../components/navigation/Navigation";
+
 export default function PageLayout({ children }) {
+  const [navigationVisible, setNavigationVisible] = useState(false);
+
+  const toggleNavigation = () => {
+    setNavigationVisible(!navigationVisible);
+  };
+
   return (
     <div className="page-wrapper">
       <header
@@ -13,10 +22,12 @@ export default function PageLayout({ children }) {
         <div>
           <p style={{ fontWeight: 700, fontSize: "var(--logo-text)" }}>Nyum</p>
         </div>
-        <div>
+        <div onClick={toggleNavigation} style={{ cursor: "pointer" }}>
           <p>menu</p>
         </div>
       </header>
+      {navigationVisible && <Navigation />}
+
       <div className="children-wrapper">{children}</div>
       <footer style={{ color: "white" }}>
         <div>
