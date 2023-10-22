@@ -14,7 +14,7 @@ export default function PageLayout({ children }) {
           <p style={{ fontWeight: 700, fontSize: "var(--logo-text)" }}>Nyum</p>
         </div>
         <div>
-          <p>nav menu goes here</p>
+          <p>menu</p>
         </div>
       </header>
       <div className="children-wrapper">{children}</div>

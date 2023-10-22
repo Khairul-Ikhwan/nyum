@@ -74,7 +74,7 @@ a {
   background-color: white;
   color: white;
 
-  height: 360px;
+  min-height: 360px;
 
   background-size: cover;
   background-repeat: no-repeat;
@@ -95,11 +95,17 @@ a {
   background-color: rgba(128, 128, 128, .3);
   padding: 5%;
   overflow-x: hidden;
+  height: fit-content;
+
 }
 
 .hero-title {
   transform: translateX(-100%);
   animation: slide-in 1s ease-in forwards;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   
 }
 

@@ -7,13 +7,18 @@ export default defineConfig({
     exclude: ['js-big-decimal'],
   },
   server: {
-		proxy: {
-			'/api': {
-				target: 'http://localhost:3000',
-				changeOrigin: true,
-				secure: false,
-				ws: true,
-			},
-		},
-	} 
+    hmr: {
+		overlay: true,
+    },
+    proxy: {
+      // Proxy requests to your Express.js server running at http://localhost:3000
+      '/api': {
+        target: 'http://localhost:3000',
+        changeOrigin: true,
+        secure: false,
+        // Allow WebSocket connections
+        ws: true,
+      },
+    },
+  },
 });
