@@ -175,13 +175,13 @@ footer {
 }
 
 .navigation-menu li:hover {
-  font-weight: bold;
   color: var(--primary);
   
 }
 
 .navigation-menu li:active, li:focus {
   color: var(--primary);
+  font-weight: bold;
 }
 
 
