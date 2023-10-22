@@ -180,7 +180,7 @@ footer {
   
 }
 
-.navigation-menu li:active {
+.navigation-menu li:active, li:focus {
   color: var(--primary);
 }
 
