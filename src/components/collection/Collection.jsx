@@ -2,29 +2,35 @@ import merchantsData from "../../merchants.json";
 import DummyCard from "./DummyCard";
 import "./collection.css";
 import { lazy, Suspense } from "react";
+import { useNavigate } from "react-router";
 
 const CollectionCard = lazy(() => import("./CollectionCard"));
 
 export default function Collection() {
-  const merchants = Object.keys(merchantsData).map((storeName) => ({
-    storeName,
-    products: merchantsData[storeName],
-  }));
+  const navigate = useNavigate();
+  const buttonClick = () => {
+    navigate("/store");
+  };
+
+  const stores = merchantsData.merchants;
 
   return (
     <div className="collection">
       <h2>Recently Added</h2>
       <Suspense fallback={<DummyCard />}>
         <div className="collection-container">
-          {merchants.map((merchant) =>
-            merchant.products.map((product, productIndex) => (
+          {stores.map((store) =>
+            store.products.map((product, productIndex) => (
               <CollectionCard
                 key={productIndex}
-                storeName={merchant.storeName}
+                storeId={store.id}
+                storeName={store.name}
                 productName={product.productName}
                 productPrice={product.productPrice}
                 productImage={product.productImage}
-              />
+              >
+                <button onClick={buttonClick}>Visit Store</button>
+              </CollectionCard>
             ))
           )}
         </div>

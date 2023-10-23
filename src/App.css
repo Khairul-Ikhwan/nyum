@@ -85,6 +85,8 @@ a {
   flex-direction: column;
   place-content: center;
 
+  
+
   font-size: 1.2rem;
 
   box-shadow: 0 .2px 12px 0 rgba(0, 0, 0, .5);
@@ -96,7 +98,6 @@ a {
   padding: 5%;
   overflow-x: hidden;
   height: fit-content;
-
 }
 
 .hero-title {
@@ -201,6 +202,16 @@ footer {
 .navigation-menu .sub-menu p:not(:last-child)::after {
   content: '|'; /* Insert a vertical bar between items */
   margin: 0 10px; /* Adjust the spacing between the vertical bars */
+}
+
+.section-container {
+  display: flex;
+  padding: 5%;
+  gap: 10px;
+
+  box-shadow: 0 .2px 12px 0 rgba(0, 0, 0, .5);
+  background-color: white;
+
 }
 
 @media (min-width: 950px) {

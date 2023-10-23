@@ -59,7 +59,7 @@
     font-size: 0.9em;
 }
 
-.card .description .storeName {
+.card .description .desc-small {
     grid-row: 2;
     grid-column: 1 / span 2; 
     font-size: .7em;

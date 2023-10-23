@@ -1,12 +1,18 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Navigation from "../components/navigation/Navigation";
+import { Link } from "react-router-dom";
 
-export default function PageLayout({ children }) {
+export default function PageLayout({ children, logo, storeName }) {
   const [navigationVisible, setNavigationVisible] = useState(false);
 
   const toggleNavigation = () => {
     setNavigationVisible(!navigationVisible);
   };
+
+  // Make the user scroll to the top
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="page-wrapper">
@@ -20,8 +26,19 @@ export default function PageLayout({ children }) {
         }}
       >
         <div>
-          <p style={{ fontWeight: 700, fontSize: "var(--logo-text)" }}>Nyum</p>
+          {logo && storeName ? (
+            <p style={{ fontWeight: 700, fontSize: "var(--logo-text)" }}>
+              {storeName}
+            </p>
+          ) : (
+            <Link to="/" style={{ cursor: "pointer" }}>
+              <p style={{ fontWeight: 700, fontSize: "var(--logo-text)" }}>
+                Nyum
+              </p>
+            </Link>
+          )}{" "}
         </div>
+
         <div onClick={toggleNavigation} style={{ cursor: "pointer" }}>
           {navigationVisible ? "close menu" : "menu"}
         </div>

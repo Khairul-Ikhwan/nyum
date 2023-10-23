@@ -2,7 +2,9 @@ export default function CollectionCard({
   productName,
   storeName,
   productPrice,
+  purchasedTimes,
   productImage = "assets/images/croissant.jpeg",
+  children,
 }) {
   return (
     <div className="card">
@@ -10,15 +12,21 @@ export default function CollectionCard({
         <img src={productImage} />
         <div className="description">
           <section>
-            <h3>{productName}</h3>
-            <p className="storeName">by {storeName}</p>
+            {productName ? <h3>{productName}</h3> : null}
+            {storeName
+              ? `by ${storeName}`
+              : purchasedTimes
+              ? `${purchasedTimes} purchased`
+              : null}
           </section>
           <section>
-            <p className="price">S${productPrice}</p>
+            <p className="price">
+              {productPrice ? `S$ ${productPrice}` : null}
+            </p>
           </section>
         </div>
 
-        <button>Visit Store</button>
+        {children}
       </div>
     </div>
   );
