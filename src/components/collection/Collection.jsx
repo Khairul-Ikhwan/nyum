@@ -1,38 +1,33 @@
-import CollectionCard from "./CollectionCard";
+import merchantsData from "../../merchants.json";
 import "./collection.css";
+import { lazy, Suspense } from "react";
+
+const CollectionCard = lazy(() => import("./CollectionCard"));
 
 export default function Collection() {
-  const merchants = [
-    {
-      productName: "Epok-Epok",
-      storeName: "Crofuffles",
-      productPrice: 10,
-    },
-    {
-      productName: "Fresh Fruit Salad",
-      storeName: "Fruit Delights",
-      productPrice: 8,
-    },
-    {
-      productName: "Spicy Chicken Wings",
-      storeName: "WingMaster",
-      productPrice: 12,
-    },
-  ];
+  const merchants = Object.keys(merchantsData).map((storeName) => ({
+    storeName,
+    products: merchantsData[storeName],
+  }));
 
   return (
     <div className="collection">
       <h2>Recently Added</h2>
-      <div className="collection-container">
-        {merchants.map((merchant, index) => (
-          <CollectionCard
-            key={index} // Make sure to provide a unique key for each rendered component
-            productName={merchant.productName}
-            storeName={merchant.storeName}
-            productPrice={merchant.productPrice}
-          />
-        ))}
-      </div>
+      <Suspense fallback={<div>Loading...</div>}>
+        <div className="collection-container">
+          {merchants.map((merchant) =>
+            merchant.products.map((product, productIndex) => (
+              <CollectionCard
+                key={productIndex}
+                storeName={merchant.storeName}
+                productName={product.productName}
+                productPrice={product.productPrice}
+                productImage={product.productImage}
+              />
+            ))
+          )}
+        </div>
+      </Suspense>
     </div>
   );
 }

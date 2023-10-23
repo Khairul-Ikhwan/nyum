@@ -2,11 +2,12 @@ export default function CollectionCard({
   productName,
   storeName,
   productPrice,
+  productImage = "assets/images/croissant.jpeg",
 }) {
   return (
     <div className="card">
       <div className="card-container">
-        <img src="assets/images/curry_puff.jpeg" />
+        <img src={productImage} />
         <div className="description">
           <section>
             <h3>{productName}</h3>

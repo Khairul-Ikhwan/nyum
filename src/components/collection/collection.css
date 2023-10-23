@@ -17,12 +17,16 @@
     gap: 10px;
 
     overflow-x: scroll;
+
+    scroll-snap-type: x mandatory;
 }
 
 .card {
     min-height: 200px;
     min-width: 250px;
     max-width: 48%;
+
+    scroll-snap-align: start;
 }
 
 .card-container {
