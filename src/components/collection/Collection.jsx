@@ -1,4 +1,5 @@
 import merchantsData from "../../merchants.json";
+import DummyCard from "./DummyCard";
 import "./collection.css";
 import { lazy, Suspense } from "react";
 
@@ -13,7 +14,7 @@ export default function Collection() {
   return (
     <div className="collection">
       <h2>Recently Added</h2>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<DummyCard />}>
         <div className="collection-container">
           {merchants.map((merchant) =>
             merchant.products.map((product, productIndex) => (
