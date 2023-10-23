@@ -23,7 +23,7 @@ export default function PageLayout({ children }) {
           <p style={{ fontWeight: 700, fontSize: "var(--logo-text)" }}>Nyum</p>
         </div>
         <div onClick={toggleNavigation} style={{ cursor: "pointer" }}>
-          <p>menu</p>
+          {navigationVisible ? "close menu" : "menu"}
         </div>
       </header>
       {navigationVisible && <Navigation />}
