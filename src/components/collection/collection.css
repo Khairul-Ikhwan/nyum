@@ -63,6 +63,8 @@
     grid-row: 2;
     grid-column: 1 / span 2; 
     font-size: .7em;
+
+    
 }
 
 .card .description .price {
@@ -71,6 +73,7 @@
     justify-self: flex-end;
 
     flex-grow: 1;
+    min-width: max-content;
 }
 
 .card button {

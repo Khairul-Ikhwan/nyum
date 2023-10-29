@@ -16,7 +16,7 @@ export default function StoreFront() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate loading delay for demonstration purposes
+    // Make it feel like it's loading
     setTimeout(() => {
       setLoading(false);
     }, 2000);

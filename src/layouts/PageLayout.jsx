@@ -50,12 +50,16 @@ export default function PageLayout({ children, logo, storeName }) {
 
       <div className="children-wrapper">{children}</div>
       <footer style={{ color: "white" }}>
-        <div>
-          <p style={{ fontWeight: 700, fontSize: "var(--logo-text)" }}>Nyum</p>
-          <p style={{ fontWeight: 300, fontSize: "var(--logo-text-small)" }}>
-            a platform by Kibar Digtal Pte Ltd
-          </p>
-        </div>
+        <Link to="https://kibar.digital">
+          <div style={{ cursor: "pointer" }}>
+            <p style={{ fontWeight: 700, fontSize: "var(--logo-text)" }}>
+              Nyum
+            </p>
+            <p style={{ fontWeight: 300, fontSize: "var(--logo-text-small)" }}>
+              a platform by Kibar Digtal Pte Ltd
+            </p>
+          </div>
+        </Link>
       </footer>
     </div>
   );
