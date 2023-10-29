@@ -12,6 +12,7 @@ export default function HomePage() {
         <h1 style={{ maxWidth: "22ch" }}>
           Straight from our kitchens to your homes
         </h1>
+        <button> View Products</button>
       </Hero>
 
       <Collection />

@@ -2,28 +2,63 @@ import CollectionCard from "../../components/collection/CollectionCard";
 import PageLayout from "../../layouts/PageLayout";
 import SectionContainer from "../../components/heros/SectionContainer";
 import Hero from "../../components/heros/Hero";
+import { useParams } from "react-router";
+import merchantsData from "../../merchants.json";
+import { useEffect, useState } from "react";
+import { TailSpin } from "react-loader-spinner";
 
 export default function StoreFront() {
+  const { id } = useParams();
+  const store = merchantsData.merchants.find((store) => store.id === id);
+  const storeName = store?.name;
+  const products = store?.products || [];
+
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate loading delay for demonstration purposes
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
+
   return (
-    <PageLayout>
+    <PageLayout storeName={storeName}>
       <SectionContainer style={{ flexDirection: "column" }}>
         <h1 style={{ textAlign: "center", fontWeight: "900" }}>All Products</h1>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            flexWrap: "wrap",
-            justifyContent: "center",
-            gap: "10px",
-          }}
-        >
-          <CollectionCard>
-            <button>View</button>
-          </CollectionCard>
-        </div>
+        {loading ? (
+          <LoadingIndicator />
+        ) : (
+          <div
+            style={{
+              display: "flex",
+              flexFlow: "row wrap",
+              justifyContent: "start",
+              gap: "10px",
+            }}
+          >
+            {products.map((product, productIndex) => (
+              <CollectionCard
+                style={{
+                  width: "48%",
+                  maxWidth: "unset",
+                  minWidth: "unset",
+                }}
+                key={productIndex}
+                storeId={id}
+                productName={product.productName}
+                productPrice={product.productPrice}
+                productImage={product.productImage}
+                purchasedTimes={product.purchasedTimes}
+              >
+                <button>View</button>
+              </CollectionCard>
+            ))}
+          </div>
+        )}
       </SectionContainer>
       <Hero
-        backgroundImg="assets/images/hero_merchantt.jpeg"
+        backgroundImg="../../assets/images/hero_merchantt.jpeg"
         backgroundPosition="0 30%"
       >
         <h1 style={{ maxWidth: "22ch" }}>
@@ -32,5 +67,20 @@ export default function StoreFront() {
         <button>Learn More</button>
       </Hero>
     </PageLayout>
+  );
+}
+
+function LoadingIndicator() {
+  return (
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "200px",
+      }}
+    >
+      <TailSpin color="var(--primary)" height={80} width={80} />
+    </div>
   );
 }

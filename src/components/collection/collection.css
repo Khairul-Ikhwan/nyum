@@ -24,8 +24,7 @@
 .card {
     min-height: 200px;
     min-width: 250px;
-    max-width: 48%;
-
+    max-width: 20%;
     scroll-snap-align: start;
 }
 
@@ -45,6 +44,7 @@
 .card-container img {
     width: 100%;
     height: 200px;
+    max-height: inherit;
     object-fit: cover;
     object-position: center;
 
@@ -90,3 +90,5 @@
     padding: 5%;
     flex-grow: 1;
 }
+
+

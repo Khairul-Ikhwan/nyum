@@ -26,10 +26,13 @@ export default function PageLayout({ children, logo, storeName }) {
         }}
       >
         <div>
-          {logo && storeName ? (
-            <p style={{ fontWeight: 700, fontSize: "var(--logo-text)" }}>
-              {storeName}
-            </p>
+          {logo || storeName ? (
+            <>
+              <p style={{ fontWeight: 700, fontSize: "var(--logo-text)" }}>
+                {storeName}
+              </p>
+              <p style={{ fontWeight: 100, fontSize: ".8rem" }}>on Nyum</p>
+            </>
           ) : (
             <Link to="/" style={{ cursor: "pointer" }}>
               <p style={{ fontWeight: 700, fontSize: "var(--logo-text)" }}>
