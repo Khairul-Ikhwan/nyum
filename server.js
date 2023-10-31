@@ -12,12 +12,12 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(favicon(path.join(__dirname, 'dist', 'vite.svg')));
 
-app.use(express.static(path.join(__dirname, 'dist')),{extensions: ["js"]});
+app.use(express.static(path.join(__dirname, 'dist')));
 
 // Serve the index.html for all routes (client-side routing)
 app.get('/*', function (req, res) {
-    res.sendFile('index.html', { root: __dirname });
-  });
+  res.sendFile('index.html', { root: __dirname });
+});
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
