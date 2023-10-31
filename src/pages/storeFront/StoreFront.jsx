@@ -1,4 +1,4 @@
-import CollectionCard from "../../components/collection/CollectionCard.jsx";
+import CollectionCard from "../../components/collection/CollectionCard";
 import PageLayout from "../../layouts/PageLayout";
 import SectionContainer from "../../components/heros/SectionContainer";
 import Hero from "../../components/heros/Hero";
@@ -6,19 +6,17 @@ import { useParams } from "react-router";
 import merchantsData from "../../merchants.json";
 import { useEffect, useState } from "react";
 import { TailSpin } from "react-loader-spinner";
+import { Link } from "react-router-dom";
 
 export default function StoreFront() {
   const { id } = useParams();
   const store = merchantsData.merchants.find((store) => store.id === id);
   const storeName = store?.name;
   const products = store?.products || [];
-
+  const totalProducts = products.length;
   const [loading, setLoading] = useState(true);
 
-  const totalProducts = products.length;
-
   useEffect(() => {
-    // Make it feel like it's loading
     setTimeout(() => {
       setLoading(false);
     }, 2000);
@@ -30,7 +28,7 @@ export default function StoreFront() {
         <h1 style={{ textAlign: "center", fontWeight: "900" }}>All Products</h1>
         {loading ? (
           <LoadingIndicator />
-        ) : (
+        ) : store ? (
           <div style={{ display: "flex", flexDirection: "column", gap: "5px" }}>
             <p style={{ textAlign: "center" }}>
               {totalProducts} products found
@@ -52,12 +50,26 @@ export default function StoreFront() {
                   productPrice={product.productPrice}
                   productImage={product.productImage}
                   purchasedTimes={product.purchasedTimes}
-                >
-                  <button>View</button>
-                </CollectionCard>
+                ></CollectionCard>
               ))}
             </div>
           </div>
+        ) : (
+          <>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                placeItems: "center",
+                gap: "10px",
+              }}
+            >
+              <p style={{ textAlign: "center" }}>Store doesn&apos;t exist</p>
+              <Link to="/">
+                <button>Back to Home</button>
+              </Link>
+            </div>
+          </>
         )}
       </SectionContainer>
       <Hero
