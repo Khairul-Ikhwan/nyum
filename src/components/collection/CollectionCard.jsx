@@ -6,9 +6,10 @@ export default function CollectionCard({
   productImage = "../../assets/images/croissant.jpeg",
   children,
   style,
+  className,
 }) {
   return (
-    <div className="card" style={style}>
+    <div className={`card ${className}`} style={style}>
       <div className="card-container">
         <img src={productImage} />
         <div className="description">

@@ -15,6 +15,8 @@ export default function StoreFront() {
 
   const [loading, setLoading] = useState(true);
 
+  const totalProducts = products.length;
+
   useEffect(() => {
     // Make it feel like it's loading
     setTimeout(() => {
@@ -30,30 +32,33 @@ export default function StoreFront() {
           <LoadingIndicator />
         ) : (
           <div
-            style={{
-              display: "flex",
-              flexFlow: "row wrap",
-              justifyContent: "start",
-              gap: "10px",
-            }}
+            style={{ display: "flex", flexDirection: "column", gap: "10px" }}
           >
-            {products.map((product, productIndex) => (
-              <CollectionCard
-                style={{
-                  width: "48%",
-                  maxWidth: "unset",
-                  minWidth: "unset",
-                }}
-                key={productIndex}
-                storeId={id}
-                productName={product.productName}
-                productPrice={product.productPrice}
-                productImage={product.productImage}
-                purchasedTimes={product.purchasedTimes}
-              >
-                <button>View</button>
-              </CollectionCard>
-            ))}
+            <p style={{ textAlign: "center" }}>
+              {totalProducts} products found
+            </p>
+            <div
+              style={{
+                display: "flex",
+                flexFlow: "row wrap",
+                justifyContent: "center",
+                gap: "10px",
+              }}
+            >
+              {products.map((product, productIndex) => (
+                <CollectionCard
+                  className={"storeFront"}
+                  key={productIndex}
+                  storeId={id}
+                  productName={product.productName}
+                  productPrice={product.productPrice}
+                  productImage={product.productImage}
+                  purchasedTimes={product.purchasedTimes}
+                >
+                  <button>View</button>
+                </CollectionCard>
+              ))}
+            </div>
           </div>
         )}
       </SectionContainer>

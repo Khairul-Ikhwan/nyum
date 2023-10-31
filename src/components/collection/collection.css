@@ -22,9 +22,9 @@
 }
 
 .card {
-    min-height: 200px;
-    min-width: 250px;
-    max-width: 20%;
+    width: 48%;
+    place-self: center;
+    aspect-ratio: 1 / 1.5;
     scroll-snap-align: start;
 }
 
@@ -42,12 +42,10 @@
 }
 
 .card-container img {
-    width: 100%;
-    height: 200px;
-    max-height: inherit;
+    min-height: 50px;
     object-fit: cover;
     object-position: center;
-
+    aspect-ratio: 1;
     
 }
 
@@ -94,4 +92,9 @@
     flex-grow: 1;
 }
 
-
+@media (min-width: 800px) {
+    .card {
+        all: unset;
+        width: 30%;
+    }
+}

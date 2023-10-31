@@ -25,6 +25,8 @@ button {
   border: 1px solid var(--White, #FFF);
   background: var(--buttons);
   max-width: fit-content;
+  min-width: 50px;
+  min-height: 50px;
   padding: 2%;
   color: white;
 
