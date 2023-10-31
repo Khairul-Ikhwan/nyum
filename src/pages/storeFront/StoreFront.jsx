@@ -31,9 +31,7 @@ export default function StoreFront() {
         {loading ? (
           <LoadingIndicator />
         ) : (
-          <div
-            style={{ display: "flex", flexDirection: "column", gap: "10px" }}
-          >
+          <div style={{ display: "flex", flexDirection: "column", gap: "5px" }}>
             <p style={{ textAlign: "center" }}>
               {totalProducts} products found
             </p>
@@ -41,8 +39,8 @@ export default function StoreFront() {
               style={{
                 display: "flex",
                 flexFlow: "row wrap",
-                justifyContent: "center",
                 gap: "10px",
+                placeContent: "center",
               }}
             >
               {products.map((product, productIndex) => (

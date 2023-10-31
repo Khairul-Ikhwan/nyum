@@ -1,12 +1,13 @@
 .collection {
     background-color: white;
     padding: 5%;
-
+    min-height: fit-content;
     display: flex;
     flex-direction: column;
     gap: 20px;
 
     box-shadow: 0 .2px 12px 0 rgba(0, 0, 0, .5);
+    
 }
 
 .collection-container {
@@ -15,16 +16,14 @@
     display: flex;
     flex-wrap: nowrap;
     gap: 10px;
-
     overflow-x: scroll;
     scroll-behavior: smooth 500ms;
     scroll-snap-type: x mandatory;
 }
 
 .card {
-    width: 48%;
-    place-self: center;
-    aspect-ratio: 1 / 1.5;
+    width: 85%;
+    place-self: flex-start;
     scroll-snap-align: start;
 }
 
@@ -32,21 +31,21 @@
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    height: 100%;
     border-radius: 10px;
     overflow: hidden;
     gap: 10px;
     padding-bottom: 5%;
-
     border: 2px solid var(--pri-alt);
+
+    height: inherit;
 }
 
 .card-container img {
-    min-height: 50px;
+    min-height: 100px;
+    max-height: 50% ;
     object-fit: cover;
     object-position: center;
-    aspect-ratio: 1;
-    
+    aspect-ratio: 1 / 1;
 }
 
 
@@ -92,9 +91,18 @@
     flex-grow: 1;
 }
 
+.card.storeFront {
+    width: 44%;
+    flex-grow: 1;
+}
+
 @media (min-width: 800px) {
     .card {
         all: unset;
+        width: 30%;
+    }
+
+    .card.storeFront {
         width: 30%;
     }
 }
