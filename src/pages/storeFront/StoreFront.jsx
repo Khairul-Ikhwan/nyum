@@ -1,4 +1,4 @@
-import CollectionCard from "../../components/collection/CollectionCard";
+import CollectionCard from "../../components/collection/CollectionCard.jsx";
 import PageLayout from "../../layouts/PageLayout";
 import SectionContainer from "../../components/heros/SectionContainer";
 import Hero from "../../components/heros/Hero";
