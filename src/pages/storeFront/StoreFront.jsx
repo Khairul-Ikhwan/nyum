@@ -52,7 +52,9 @@ export default function StoreFront() {
                   productImage={product.productImage}
                   purchasedTimes={product.purchasedTimes}
                 >
-                  <button>View</button>
+                  <button style={{ maxWidth: "unset", width: "100px" }}>
+                    View
+                  </button>
                 </CollectionCard>
               ))}
             </div>
