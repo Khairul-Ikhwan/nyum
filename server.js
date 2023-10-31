@@ -16,8 +16,8 @@ app.use(express.static(path.join(__dirname, 'dist')));
 
 // Serve the index.html for all routes (client-side routing)
 app.get('/*', function (req, res) {
-    res.sendFile(path.join(__dirname, 'index.html'));
-});
+    res.sendFile('index.html', { root: __dirname });
+  });
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
