@@ -49,6 +49,7 @@
 }
 
 .card-container img {
+    overflow: hidden;
     min-height: 100px;
     max-height: 50% ;
     object-fit: cover;
