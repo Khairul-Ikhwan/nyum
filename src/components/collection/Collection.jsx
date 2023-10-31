@@ -1,10 +1,9 @@
 import merchantsData from "../../merchants.json";
+import CollectionCard from "./CollectionCard";
 import "./collection.css";
-import { lazy, Suspense } from "react";
+import { Suspense } from "react";
 import { useNavigate } from "react-router";
 import { TailSpin } from "react-loader-spinner";
-
-const CollectionCard = lazy(() => import("./CollectionCard"));
 
 export default function Collection() {
   const navigate = useNavigate();
