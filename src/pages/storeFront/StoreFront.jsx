@@ -44,7 +44,12 @@ export default function StoreFront() {
             >
               {products.map((product, productIndex) => (
                 <CollectionCard
-                  className={"storeFront"}
+                  className={`storeFront ${
+                    products.length % 2 !== 0 &&
+                    productIndex === products.length - 1
+                      ? "lastChild"
+                      : ""
+                  }`}
                   key={productIndex}
                   storeId={id}
                   productName={product.productName}
@@ -52,9 +57,7 @@ export default function StoreFront() {
                   productImage={product.productImage}
                   purchasedTimes={product.purchasedTimes}
                 >
-                  <button style={{ maxWidth: "unset", width: "100px" }}>
-                    View
-                  </button>
+                  <button>View</button>
                 </CollectionCard>
               ))}
             </div>
