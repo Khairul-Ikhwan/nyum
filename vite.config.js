@@ -7,9 +7,6 @@ export default defineConfig({
     exclude: ['js-big-decimal'],
   },
   server: {
-    hmr: {
-		overlay: true,
-    },
     proxy: {
       // Proxy requests to your Express.js server running at http://localhost:3000
       '/api': {
