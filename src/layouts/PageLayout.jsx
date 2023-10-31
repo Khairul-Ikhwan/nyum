@@ -27,19 +27,33 @@ export default function PageLayout({ children, logo, storeName }) {
       >
         <div>
           {logo || storeName ? (
-            <>
-              <p style={{ fontWeight: 700, fontSize: "var(--logo-text)" }}>
-                {storeName}
-              </p>
-              <p style={{ fontWeight: 100, fontSize: ".8rem" }}>on Nyum</p>
-            </>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                gap: "10px",
+                placeItems: "center",
+              }}
+            >
+              {logo && (
+                <img style={{ width: "45px", height: "45px" }} src={logo} />
+              )}
+              {storeName && (
+                <div>
+                  <p style={{ fontWeight: 700, fontSize: "var(--logo-text)" }}>
+                    {storeName}
+                  </p>
+                  <p style={{ fontWeight: 100, fontSize: ".8rem" }}>on Nyum</p>
+                </div>
+              )}
+            </div>
           ) : (
             <Link to="/" style={{ cursor: "pointer" }}>
               <p style={{ fontWeight: 700, fontSize: "var(--logo-text)" }}>
                 Nyum
               </p>
             </Link>
-          )}{" "}
+          )}
         </div>
 
         <div onClick={toggleNavigation} style={{ cursor: "pointer" }}>

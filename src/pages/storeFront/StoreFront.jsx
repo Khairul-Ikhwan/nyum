@@ -12,6 +12,7 @@ export default function StoreFront() {
   const { id } = useParams();
   const store = merchantsData.merchants.find((store) => store.id === id);
   const storeName = store?.name;
+  const storeLogo = store?.logo;
   const products = store?.products || [];
   const totalProducts = products.length;
   const [loading, setLoading] = useState(true);
@@ -23,7 +24,7 @@ export default function StoreFront() {
   }, []);
 
   return (
-    <PageLayout storeName={storeName}>
+    <PageLayout storeName={storeName} logo={storeLogo}>
       <SectionContainer style={{ flexDirection: "column" }}>
         <h1 style={{ textAlign: "center", fontWeight: "900" }}>All Products</h1>
         {loading ? (
@@ -50,7 +51,9 @@ export default function StoreFront() {
                   productPrice={product.productPrice}
                   productImage={product.productImage}
                   purchasedTimes={product.purchasedTimes}
-                ></CollectionCard>
+                >
+                  <button>View</button>
+                </CollectionCard>
               ))}
             </div>
           </div>
@@ -73,7 +76,7 @@ export default function StoreFront() {
         )}
       </SectionContainer>
       <Hero
-        backgroundImg="../../assets/images/hero_merchantt.jpeg"
+        backgroundImg="../assets/images/hero_merchantt.jpeg"
         backgroundPosition="0 30%"
       >
         <h1 style={{ maxWidth: "22ch" }}>

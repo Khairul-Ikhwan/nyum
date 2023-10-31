@@ -6,7 +6,7 @@ export default function HomePage() {
   return (
     <PageLayout>
       <Hero
-        backgroundImg="assets/images/hero_shop.jpeg"
+        backgroundImg="../assets/images/hero_shop.jpeg"
         backgroundPosition="0 50%"
       >
         <h1 style={{ maxWidth: "22ch" }}>
@@ -18,7 +18,7 @@ export default function HomePage() {
       <Collection />
 
       <Hero
-        backgroundImg="assets/images/hero_merchantt.jpeg"
+        backgroundImg="../assets/images/hero_merchantt.jpeg"
         backgroundPosition="0 30%"
       >
         <h1 style={{ maxWidth: "22ch" }}>
