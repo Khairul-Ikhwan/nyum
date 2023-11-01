@@ -1,3 +1,6 @@
+import { Suspense } from "react";
+import { TailSpin } from "react-loader-spinner";
+
 export default function CollectionCard({
   productName,
   storeName,
@@ -11,7 +14,15 @@ export default function CollectionCard({
   return (
     <div className={`card ${className}`} style={style}>
       <div className="card-container">
-        <img src={productImage} />
+        <Suspense
+          fallback={
+            <div style={{ display: "flex", placeContent: "center" }}>
+              <TailSpin />
+            </div>
+          }
+        >
+          <img src={productImage} />
+        </Suspense>
         <div className="description">
           <section>
             {productName ? <h3>{productName}</h3> : null}

@@ -38,7 +38,13 @@ export default function ProductView() {
   };
 
   return (
-    <SectionContainer style={{ display: "flex", flexDirection: "column" }}>
+    <SectionContainer
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        placeItems: "center",
+      }}
+    >
       <h3>Product Details</h3>
       {matchingProducts.length > 0 && (
         <div
@@ -52,7 +58,11 @@ export default function ProductView() {
           {matchingProducts.map((product, index) => (
             <div
               key={index}
-              style={{ display: "flex", gap: "20px", flexDirection: "column" }}
+              style={{
+                display: "flex",
+                gap: "20px",
+                flexDirection: "column",
+              }}
             >
               {imageLoading && (
                 <div style={{ display: "flex", placeContent: "center" }}>
@@ -62,6 +72,7 @@ export default function ProductView() {
               <img
                 style={{
                   maxWidth: "100%",
+                  maxHeight: "250px",
                   objectFit: "cover",
                   aspectRatio: "1 / 1",
                   objectPosition: "0 50%",
