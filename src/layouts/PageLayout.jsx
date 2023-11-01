@@ -1,7 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Navigation from "../components/navigation/Navigation";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import useScrollSnap from "react-use-scroll-snap";
 
 export default function PageLayout({ children, logo, storeName }) {
   const [navigationVisible, setNavigationVisible] = useState(false);
@@ -16,6 +17,9 @@ export default function PageLayout({ children, logo, storeName }) {
   }, []);
 
   const { id } = useParams();
+
+  const scrollRef = useRef(null);
+  useScrollSnap({ ref: scrollRef, duration: 50, delay: 20 });
 
   return (
     <div className="page-wrapper">
@@ -72,7 +76,9 @@ export default function PageLayout({ children, logo, storeName }) {
       </header>
       {navigationVisible && <Navigation />}
 
-      <div className="children-wrapper">{children}</div>
+      <div className="children-wrapper" ref={scrollRef}>
+        {children}
+      </div>
       <footer style={{ color: "white" }}>
         <Link to="https://kibar.digital">
           <div style={{ cursor: "pointer" }}>
