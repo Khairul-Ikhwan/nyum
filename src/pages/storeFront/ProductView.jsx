@@ -63,7 +63,7 @@ export default function ProductView() {
                 style={{
                   maxWidth: "100%",
                   objectFit: "cover",
-                  aspectRatio: "1.5 / 1",
+                  aspectRatio: "1 / 1",
                   objectPosition: "0 50%",
                   display: imageLoading ? "none" : "block",
                   borderRadius: "10px",
