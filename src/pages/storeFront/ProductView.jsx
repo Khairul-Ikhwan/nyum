@@ -38,9 +38,7 @@ export default function ProductView() {
   };
 
   return (
-    <SectionContainer
-      style={{ display: "flex", flexDirection: "column", flexGrow: "1" }}
-    >
+    <SectionContainer style={{ display: "flex", flexDirection: "column" }}>
       <h3>Product Details</h3>
       {matchingProducts.length > 0 && (
         <div
@@ -64,7 +62,6 @@ export default function ProductView() {
               <img
                 style={{
                   maxWidth: "100%",
-                  maxHeight: "50%",
                   objectFit: "cover",
                   aspectRatio: "2 / 1",
                   objectPosition: "0 50%",
@@ -80,7 +77,7 @@ export default function ProductView() {
                   display: "flex",
                   flexDirection: "row",
                   width: "100%",
-                  flexGrow: "1",
+                  flexGrow: ".5",
                   placeContent: "space-between",
                 }}
               >
@@ -90,6 +87,7 @@ export default function ProductView() {
                     flexDirection: "column",
                     gap: "2.5px",
                     maxWidth: "65%",
+                    placeSelf: "center",
                   }}
                 >
                   <h4>{productNameCap}</h4>
@@ -114,9 +112,8 @@ export default function ProductView() {
                     </p>
                   </div>
                 </div>
-                <button style={{ maxHeight: "50px", placeSelf: "center" }}>
-                  {" "}
-                  Add to Cart{" "}
+                <button style={{ maxHeight: "100px", placeSelf: "center" }}>
+                  Add to Cart
                 </button>
               </div>
             </div>
