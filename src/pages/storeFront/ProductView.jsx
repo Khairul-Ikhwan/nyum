@@ -39,29 +39,29 @@ export default function ProductView() {
 
   return (
     <SectionContainer
+      className="productview-section"
       style={{
         display: "flex",
         flexDirection: "column",
-        placeItems: "center",
+        alignItems: "center",
       }}
     >
       <h3>Product Details</h3>
       {matchingProducts.length > 0 && (
         <div
+          className="productview-section"
           style={{
             display: "flex",
-            flexGrow: "1",
-            width: "inherit",
-            flexWrap: "wrap",
           }}
         >
           {matchingProducts.map((product, index) => (
             <div
+              className="productview-container"
               key={index}
               style={{
                 display: "flex",
                 gap: "20px",
-                flexDirection: "column",
+                height: "fit-content",
               }}
             >
               {imageLoading && (
@@ -70,14 +70,16 @@ export default function ProductView() {
                 </div>
               )}
               <img
+                className="product-view-img"
                 style={{
                   maxWidth: "100%",
-                  maxHeight: "250px",
+                  minHeight: "50px",
                   objectFit: "cover",
-                  aspectRatio: "1 / 1",
+                  aspectRatio: "1",
                   objectPosition: "0 50%",
                   display: imageLoading ? "none" : "block",
                   borderRadius: "10px",
+                  placeSelf: "center",
                 }}
                 src={product.productImage}
                 onLoad={handleImageLoad} // Event handler for image load
@@ -88,7 +90,6 @@ export default function ProductView() {
                   display: "flex",
                   flexDirection: "row",
                   width: "100%",
-                  flexGrow: ".5",
                   placeContent: "space-between",
                 }}
               >
