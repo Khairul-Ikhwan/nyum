@@ -10,9 +10,9 @@ export default function Navigation() {
         <li>FAQ</li>
         <li>About Us</li>
         <li>Contact Us</li>
-        <Link to="/development-roadmap">
+        {/* <Link to="/development-roadmap">
           <li>Development Roadmap</li>
-        </Link>
+        </Link> */}
       </ul>
       {/* <div className="sub-menu">
         <p>Settings</p>

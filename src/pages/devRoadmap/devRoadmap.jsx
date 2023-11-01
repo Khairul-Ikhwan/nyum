@@ -20,13 +20,12 @@ export default function DevRoadmap() {
           className="dev-list"
         >
           <h4>Technical Demo 1</h4>
-          <h5>15 November 2023</h5>
-          <p>These are the planned features for this demo:</p>
+          <h5>Scheduled for : 15 November 2023</h5>
           <p>
-            <ul>
-              <li>Merchant Store</li>
-              <li>General Layout</li>
-            </ul>
+            In this demo, we&apos;ll showcase the initial version of our app.
+            Users will be able to explore merchant stores and get a feel for the
+            general layout and design. It&apos;s a sneak peek of what&apos;s to
+            come.
           </p>
         </section>
 
@@ -35,15 +34,14 @@ export default function DevRoadmap() {
           className="dev-list"
         >
           <h4>Pre-Release 0.1</h4>
-          <h5>30 November 2023</h5>
-          <p>These are the planned features for this update: </p>
+          <h5>Scheduled for : 30 November 2023</h5>
           <p>
-            <ul>
-              <li>Merchant Store</li>
-              <li>Customer Carts</li>
-              <li>Customer Reviews</li>
-              <li>OAuth2 Logins</li>
-            </ul>
+            We&apos;re excited to bring more features to our app! In this
+            update, we&apos;re introducing the ability for customers to add
+            products to their shopping carts, leave reviews for their favorite
+            merchants, and log in using their preferred social media accounts.
+            The app is taking shape! This update will allow users to start using
+            the marketplace.
           </p>
         </section>
       </SectionContainer>
