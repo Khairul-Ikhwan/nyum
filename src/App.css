@@ -246,6 +246,10 @@ footer {
   
 }
 
+.dev-list li {
+  list-style-type: circle;
+}
+
 /* keyframes animations*/
 @keyframes slide-in {
   to {
