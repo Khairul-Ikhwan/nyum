@@ -7,6 +7,9 @@ import merchantsData from "../../merchants.json";
 import { useEffect, useState } from "react";
 import { TailSpin } from "react-loader-spinner";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router";
+import { Routes, Route } from "react-router";
+import ProductView from "./ProductView";
 
 export default function StoreFront() {
   const { id } = useParams();
@@ -16,74 +19,110 @@ export default function StoreFront() {
   const products = store?.products || [];
   const totalProducts = products.length;
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 2000);
+    }, 500);
   }, []);
+
+  function handleDetails(storeId, productName) {
+    const lowerCaseProductName = productName.toLowerCase();
+    // Construct the URL using the storeId and productName
+    const productURL = `/store/${storeId}/product/${encodeURIComponent(
+      lowerCaseProductName
+    )}`;
+
+    // Navigate to the product page
+    navigate(productURL);
+  }
 
   return (
     <PageLayout storeName={storeName} logo={storeLogo}>
-      <SectionContainer style={{ flexDirection: "column" }}>
-        <h1 style={{ textAlign: "center", fontWeight: "900" }}>All Products</h1>
-        {loading ? (
-          <LoadingIndicator />
-        ) : store ? (
-          <div style={{ display: "flex", flexDirection: "column", gap: "5px" }}>
-            <p style={{ textAlign: "center" }}>
-              {totalProducts} products found
-            </p>
-            <div
-              style={{
-                display: "flex",
-                flexFlow: "row wrap",
-                gap: "10px",
-                placeContent: "center",
-              }}
-            >
-              {products.map((product, productIndex) => (
-                <CollectionCard
-                  className={`storeFront ${
-                    products.length % 2 !== 0 &&
-                    productIndex === products.length - 1
-                      ? "lastChild"
-                      : ""
-                  }`}
-                  key={productIndex}
-                  storeId={id}
-                  productName={product.productName}
-                  productPrice={product.productPrice}
-                  productImage={product.productImage}
-                  purchasedTimes={product.purchasedTimes}
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <SectionContainer style={{ flexDirection: "column" }}>
+              <h1 style={{ textAlign: "center", fontWeight: "900" }}>
+                All Products
+              </h1>
+              {loading ? (
+                <LoadingIndicator />
+              ) : store ? (
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "5px",
+                  }}
                 >
-                  <button style={{ maxWidth: "unset", width: "100px" }}>
-                    View
-                  </button>
-                </CollectionCard>
-              ))}
-            </div>
-          </div>
-        ) : (
-          <>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                placeItems: "center",
-                gap: "10px",
-              }}
-            >
-              <p style={{ textAlign: "center" }}>Store doesn&apos;t exist</p>
-              <Link to="/">
-                <button>Back to Home</button>
-              </Link>
-            </div>
-          </>
-        )}
-      </SectionContainer>
+                  <p style={{ textAlign: "center" }}>
+                    {totalProducts} products found
+                  </p>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexFlow: "row wrap",
+                      gap: "10px",
+                      placeContent: "center",
+                    }}
+                  >
+                    {products.map((product, productIndex) => (
+                      <CollectionCard
+                        className={`storeFront ${
+                          products.length % 2 !== 0 &&
+                          productIndex === products.length - 1
+                            ? "lastChild"
+                            : ""
+                        }`}
+                        key={productIndex}
+                        storeId={id}
+                        productName={product.productName}
+                        productPrice={product.productPrice}
+                        productImage={product.productImage}
+                        purchasedTimes={product.purchasedTimes}
+                      >
+                        <button
+                          style={{ maxWidth: "unset", width: "100px" }}
+                          onClick={() => handleDetails(id, product.productName)}
+                        >
+                          View
+                        </button>
+                      </CollectionCard>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      placeItems: "center",
+                      gap: "10px",
+                    }}
+                  >
+                    <p style={{ textAlign: "center" }}>
+                      Store doesn&apos;t exist
+                    </p>
+                    <Link to="/">
+                      <button>Back to Home</button>
+                    </Link>
+                  </div>
+                </>
+              )}
+            </SectionContainer>
+          }
+        ></Route>
+        <Route
+          path="product/:productName" // Update the parameter name to productName
+          element={<ProductView />}
+        />
+      </Routes>
       <Hero
-        backgroundImg="../assets/images/hero_merchantt.jpeg"
+        backgroundImg="/../../assets/images/hero_merchantt.jpeg"
         backgroundPosition="0 30%"
       >
         <h1 style={{ maxWidth: "22ch" }}>

@@ -3,7 +3,7 @@
     {
       "id": "store1",
       "name": "Crofuffles",
-      "logo": "../../assets/images/demo_logo.svg",
+      "logo": "/../../assets/images/demo_logo.svg",
       "products": [
         { "productName": "Epok-Epok", "productPrice": 10, "productImage": "../../assets/images/curry_puff.jpeg", "purchasedTimes" : 68 },
         { "productName": "Pancakes", "productPrice": 8, "productImage": "https://images-gmi-pmc.edge-generalmills.com/df109202-f5dd-45a1-99b4-f10939afd509.jpg" },
