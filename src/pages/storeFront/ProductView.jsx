@@ -159,7 +159,12 @@ export default function ProductView() {
           </div>
         )}
       </SectionContainer>
-      <AddToCart show={isModalVisible} hideModal={hideModal} />
+      <AddToCart
+        show={isModalVisible}
+        hideModal={hideModal}
+        merchant={merchant}
+        product={matchingProducts[0]}
+      />
     </>
   );
 }
