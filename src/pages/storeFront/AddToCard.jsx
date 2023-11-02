@@ -5,7 +5,10 @@ import SectionContainer from "../../components/heros/SectionContainer";
 function QtySelector({ quantity, onQuantityChange }) {
   return (
     <div className="qty-selector">
-      <button onClick={() => onQuantityChange(quantity - 1)}> - </button>
+      <button type="button" onClick={() => onQuantityChange(quantity - 1)}>
+        {" "}
+        -{" "}
+      </button>
       <input
         type="number"
         value={quantity}
@@ -13,7 +16,10 @@ function QtySelector({ quantity, onQuantityChange }) {
         min="0"
         disabled
       />
-      <button onClick={() => onQuantityChange(quantity + 1)}> + </button>
+      <button type="button" onClick={() => onQuantityChange(quantity + 1)}>
+        {" "}
+        +{" "}
+      </button>
     </div>
   );
 }
@@ -110,6 +116,7 @@ export default function AddToCart({ show, hideModal, merchant, product }) {
       variantQuantities,
     };
     console.log(formData);
+    hideModal();
   };
 
   return (
