@@ -23,8 +23,6 @@
     display: block;
 }
 
-
-
 .modal .header-btn {
     all: unset;
 
@@ -44,7 +42,20 @@
     padding: 2.5% 5%;
     place-self: center;
     box-shadow: 0 .2px 12px 0 rgba(0, 0, 0, .5);
+
+    display: flex;
+    flex-direction: row;
+    width: inherit;
+    place-items: center;
+    justify-content: space-between;
 }
+
+.modal-header .merchant-info {
+    font-size: .9rem;
+    font-weight: 100;
+    font-style: italic;
+}
+
 
 .disable-scroll {
     overflow: hidden;
@@ -52,7 +63,7 @@
     width: 100%;
   }
 
-  .modal-container {
+.modal-container {
     background: radial-gradient(circle, var(--primary), var(--secondary));
     width: 100%;
     height: fit-content;
@@ -64,12 +75,56 @@
     gap: 10px;
   }
 
-  .modal-container > * {
+.modal-container > * {
     width: 100%;
   }
 
-  .modal-container form > div {
+  .modal-container form {
+    width: 100%;
+  }
+
+.modal-container form > div {
     display: flex;
     flex-direction: column;
     gap: 10px;
+  }
+
+.variant-selector {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+    .qty-selector {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        align-items: center;
+        justify-items: center;
+    }
+
+  .qty-selector button, input {
+    all: unset;
+    text-align: center;
+    text-justify: center;
+
+    height: 20px;
+    aspect-ratio: 1;
+  }
+
+  .qty-selector input {
+
+    border: 1px solid var(--secondary);
+    border-radius: 10px;
+    padding: 5px;
+
+  }
+
+  .qty-selector button {
+    font-size: 1.2rem;
+    cursor: pointer;
+    border: 1px solid var(--secondary);
+    padding: 5px;
+    background-color: var(--primary);
+    color: white;
   }
