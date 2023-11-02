@@ -11,6 +11,7 @@ function QtySelector({ quantity, onQuantityChange }) {
         value={quantity}
         onChange={(event) => onQuantityChange(parseInt(event.target.value))}
         min="0"
+        disabled
       />
       <button onClick={() => onQuantityChange(quantity + 1)}> + </button>
     </div>
@@ -30,13 +31,16 @@ export default function AddToCart({ show, hideModal, merchant, product }) {
     };
   }, [show]);
 
-  // State to manage quantity
-  const [quantity, setQuantity] = useState(0);
+  // State to manage quantity for variants
+  const [variantQuantities, setVariantQuantities] = useState({});
 
-  // Function to handle quantity change
-  const handleQuantityChange = (newQuantity) => {
+  // Function to handle quantity change for a specific variant
+  const handleQuantityChange = (variantKey, newQuantity) => {
     if (!isNaN(newQuantity) && newQuantity >= 0) {
-      setQuantity(newQuantity);
+      setVariantQuantities((prevQuantities) => ({
+        ...prevQuantities,
+        [variantKey]: newQuantity,
+      }));
     }
   };
 
@@ -50,22 +54,33 @@ export default function AddToCart({ show, hideModal, merchant, product }) {
               style={{
                 display: "flex",
                 flexDirection: "column",
+                width: "100%",
+                gap: "10px",
               }}
             >
-              <label>Please select an option</label>
-              <select>
+              <p style={{ fontWeight: "300" }}>Please select quantity</p>
+              <hr />
+              <div
+                style={{
+                  width: "inherit",
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "10px",
+                }}
+              >
                 {Object.keys(product.variants).map((variantKey) => (
-                  <option key={variantKey} value={variantKey}>
-                    {product.variants[variantKey].name}
-                  </option>
+                  <div className="variant-list" key={variantKey}>
+                    <h5>{product.variants[variantKey].name}</h5>
+                    <QtySelector
+                      quantity={variantQuantities[variantKey] || 0}
+                      onQuantityChange={(newQuantity) =>
+                        handleQuantityChange(variantKey, newQuantity)
+                      }
+                    />
+                  </div>
                 ))}
-              </select>
+              </div>
             </section>
-
-            <QtySelector
-              quantity={quantity}
-              onQuantityChange={handleQuantityChange}
-            />
           </div>
         </>
       );
@@ -75,8 +90,10 @@ export default function AddToCart({ show, hideModal, merchant, product }) {
           <div className="variant-selector">
             <h4>{product.productName}</h4>
             <QtySelector
-              quantity={quantity}
-              onQuantityChange={handleQuantityChange}
+              quantity={variantQuantities["default"] || 0}
+              onQuantityChange={(newQuantity) =>
+                handleQuantityChange("default", newQuantity)
+              }
             />
           </div>
         </>
@@ -86,6 +103,13 @@ export default function AddToCart({ show, hideModal, merchant, product }) {
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
+    // Submit the form data with variant quantities
+    const formData = {
+      productName: product.productName,
+      merchantId: merchant.id,
+      variantQuantities,
+    };
+    console.log(formData);
   };
 
   return (
@@ -105,7 +129,7 @@ export default function AddToCart({ show, hideModal, merchant, product }) {
             <div>{renderForm()}</div>
           </form>
         </SectionContainer>
-        <button>Add To Cart</button>
+        <button onClick={handleFormSubmit}>Add To Cart</button>
       </div>
     </div>
   );
