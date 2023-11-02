@@ -113,7 +113,7 @@ export default function ProductView() {
                     style={{
                       display: "flex",
                       flexDirection: "column",
-                      gap: "2.5px",
+                      gap: "5px",
                       maxWidth: "65%",
                       placeSelf: "center",
                     }}
@@ -135,7 +135,14 @@ export default function ProductView() {
                       }}
                     >
                       <p>S$ {product.productPrice}</p>
-                      <p style={{ fontStyle: "italic", fontSize: "smaller" }}>
+                      <p
+                        style={{
+                          fontStyle: "italic",
+                          fontSize: "small",
+                          fontWeight: "300",
+                          placeSelf: "flex-end",
+                        }}
+                      >
                         {product.unitType} {product.unitQty}
                       </p>
                     </div>

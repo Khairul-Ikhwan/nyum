@@ -21,8 +21,7 @@ export default function AddToCart({ show, hideModal }) {
           display: "flex",
           flexDirection: "row",
           width: "inherit",
-
-          alignItems: "center",
+          placeItems: "center",
           justifyContent: "space-between",
         }}
       >
