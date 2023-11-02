@@ -20,6 +20,7 @@
   list-style: none;
 }
 
+
 button {
   border-radius: 0.5rem;
   border: 1px solid var(--White, #FFF);
@@ -254,6 +255,9 @@ footer {
   flex-direction: column;
 }
 
+.body-no-scroll {
+  overflow: hidden;
+}
 
 /* keyframes animations*/
 @keyframes slide-in {
