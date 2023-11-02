@@ -48,6 +48,8 @@
     width: inherit;
     place-items: center;
     justify-content: space-between;
+
+    border: 1.5px solid var(--primary);
 }
 
 .modal-header .merchant-info {
