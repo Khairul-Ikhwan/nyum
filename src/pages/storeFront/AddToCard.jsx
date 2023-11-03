@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import "./storeFront.css";
 import SectionContainer from "../../components/heros/SectionContainer";
+import { useModal } from "../../customHooks/useModal";
+import Modal from "../../components/modal/Modal";
 
 function QtySelector({ quantity, onQuantityChange }) {
   return (
@@ -25,15 +27,17 @@ function QtySelector({ quantity, onQuantityChange }) {
 }
 
 export default function AddToCart({ show, hideModal, merchant, product }) {
+  const { isModalVisible, openModal, closeModal } = useModal();
+
   useEffect(() => {
     if (show) {
-      document.body.classList.add("disable-scroll");
+      document.body.classList.add("atcdisable-scroll");
     } else {
-      document.body.classList.remove("disable-scroll");
+      document.body.classList.remove("atcdisable-scroll");
     }
 
     return () => {
-      document.body.classList.remove("disable-scroll");
+      document.body.classList.remove("atcdisable-scroll");
     };
   }, [show]);
 
@@ -120,24 +124,47 @@ export default function AddToCart({ show, hideModal, merchant, product }) {
   };
 
   return (
-    <div className={`modal ${show ? "active" : ""}`}>
-      <div className="modal-header">
-        <span>
-          <h3>Add To Cart</h3>
-          <p className="merchant-info">{merchant.name}</p>
-        </span>
-        <button className="header-btn" onClick={hideModal}>
-          X
-        </button>
+    <>
+      <div className={`atcmodal ${show ? "active" : ""}`}>
+        <div className="atcmodal-header">
+          <span>
+            <h3>Add To Cart</h3>
+            <p className="atcmerchant-info">{merchant.name}</p>
+          </span>
+          <button className="atcheader-btn" onClick={hideModal}>
+            X
+          </button>
+        </div>
+        <div className="atcmodal-container">
+          <SectionContainer>
+            <form onSubmit={handleFormSubmit}>
+              <div>{renderForm()}</div>
+            </form>
+          </SectionContainer>
+          <button onClick={openModal}>Add To Cart</button>
+        </div>
       </div>
-      <div className="modal-container">
-        <SectionContainer>
-          <form onSubmit={handleFormSubmit}>
-            <div>{renderForm()}</div>
-          </form>
-        </SectionContainer>
-        <button onClick={handleFormSubmit}>Add To Cart</button>
-      </div>
-    </div>
+
+      {isModalVisible && (
+        <Modal showModal={isModalVisible} closeModal={closeModal}>
+          <div
+            style={{
+              padding: "5%",
+              display: "flex",
+              flexDirection: "column",
+              gap: "10px",
+              placeItems: "center",
+            }}
+          >
+            <h2>This function is not available yet</h2>
+            <p>
+              Be the first on our platform, follow the link below to register
+              your interest!{" "}
+            </p>
+            <button>Pre-register</button>
+          </div>
+        </Modal>
+      )}
+    </>
   );
 }

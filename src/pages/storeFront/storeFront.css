@@ -1,4 +1,4 @@
-.modal {
+.atcmodal {
         width: 100%;
         min-height: 50%;
         max-height: 75%;
@@ -12,14 +12,14 @@
         overflow-y: scroll;
 }
 
-.modal.active {
+.atcmodal.active {
     transform: translateY(0);
     display: flex;
     flex-direction: column;
     flex-grow: 1;
 }
 
-.modal .header-btn {
+.atcmodal .atcheader-btn {
     all: unset;
 
     text-align: center;
@@ -29,9 +29,11 @@
     
     width: 25px;
     height: 25px;
+
+    color: white;
 }
 
-.modal-header {
+.atcmodal-header {
     position: sticky;
     top: 0;
     background-color: var(--dark);
@@ -48,24 +50,24 @@
 
 }
 
-.modal .header-btn {
+.atcmodal .header-btn {
     color: white;
 }
 
-.modal-header .merchant-info {
+.atcmodal-header .atcmerchant-info {
     font-size: .9rem;
     font-weight: 100;
     font-style: italic;
 }
 
 
-.disable-scroll {
+.atcdisable-scroll {
     overflow: hidden;
     position: fixed;
     width: 100%;
   }
 
-.modal-container {
+.atcmodal-container {
     background: radial-gradient(circle, var(--primary), var(--secondary));
     width: 100%;
     height: fit-content;
@@ -81,15 +83,15 @@
     flex-grow: 1;
   }
 
-.modal-container > * {
+.atcmodal-container > * {
     width: 100%;
   }
 
-  .modal-container form {
+  .atcmodal-container form {
     width: 100%;
   }
 
-.modal-container form > div {
+.atcmodal-container form > div {
     display: flex;
     flex-direction: column;
     gap: 10px;
