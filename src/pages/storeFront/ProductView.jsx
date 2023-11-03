@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import merchantsData from "../../merchants.json";
 import { useState } from "react"; // Import useState
 import { TailSpin } from "react-loader-spinner";
-import AddToCart from "./AddToCard";
+import AddToCart from "./AddToCart";
 
 export default function ProductView() {
   const { id, productName } = useParams();

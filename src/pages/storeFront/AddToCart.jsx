@@ -156,7 +156,7 @@ export default function AddToCart({ show, hideModal, merchant, product }) {
               placeItems: "center",
             }}
           >
-            <h2>This function is not available yet</h2>
+            <h2>This feature is not available yet</h2>
             <p>
               Be the first on our platform, follow the link below to register
               your interest!{" "}
