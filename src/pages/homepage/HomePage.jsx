@@ -34,10 +34,8 @@ export default function HomePage() {
             flexDirection: "row",
             gap: "10px",
             paddingBottom: "2%",
-            overflowX: "scroll",
+            paddingLeft: ".5px",
             width: "fit-content",
-            scrollBehavior: "smooth",
-            scrollSnapType: "x mandatory",
           }}
         >
           {merchantData.merchants.map((merchant) =>
