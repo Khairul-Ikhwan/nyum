@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import MenuBobbles from "./MenuBobbles";
+import { Link } from "react-router-dom";
 
 export default function MenuDrawer({ className }) {
   // State to control whether the menu drawer is visible or not
@@ -25,7 +26,15 @@ export default function MenuDrawer({ className }) {
         <MenuBobbles />
         <MenuBobbles />
       </div>
-      <div className="login-cta">This will be the login CTA</div>
+      <div className="login-cta">
+        <Link>
+          <p>Login</p>
+        </Link>
+
+        <Link>
+          <p>Sign Up</p>
+        </Link>
+      </div>
     </div>
   );
 }

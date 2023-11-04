@@ -12,7 +12,13 @@ export default function GeneralNav() {
           <h1>Nyum</h1>
         </div>
         <div className="nav-drawer" onClick={toggleMenu}>
-          <NavDrawer fill={"var(--primary)"} width={"30px"} />
+          {isMenuOpen ? (
+            // Render an "X" icon when the menu is open
+            <h3>X</h3>
+          ) : (
+            // Render the Nav Drawer icon when the menu is closed
+            <NavDrawer fill={"var(--primary)"} width={"30px"} />
+          )}
         </div>
       </header>
       {isMenuOpen && (

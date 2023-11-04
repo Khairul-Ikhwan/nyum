@@ -22,7 +22,7 @@
 }
 
 a {
-  color: unset
+  color: unset;
 }
 
 .page {
@@ -61,7 +61,7 @@ header {
   max-height: 250px;
 
   padding: 20px 2%;
-  gap: 25px;
+  gap: 30px;
 
   display: flex;
   flex-direction: column;
@@ -89,7 +89,7 @@ header {
   gap: 5px;
 
   opacity: 0;
-  transition: opacity .75s ease;
+  transition: opacity .9s ease;
 }
 
 .menu-drawer.open .bobble {
@@ -97,11 +97,26 @@ header {
 }
 
 .bobble img{
+  border-radius: 50%;
   width: 50px;
+  aspect-ratio: 1;
 }
 
 .bobble {
   font-weight: 300;
+}
+
+.login-cta {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+
+  font-weight: 300;
+}
+
+.login-cta hr {
+  border: 1px solid black;
 }
 
 .disable-scroll {

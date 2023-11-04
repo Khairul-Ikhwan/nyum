@@ -4,7 +4,7 @@ export default function MenuBobbles() {
   return (
     <Link to="/">
       <div className="bobble">
-        <img src="/public/assets/images/demo_logo.svg" />
+        <img src="/assets/images/curry_puff.jpeg" />
         <p>This is a bobble</p>
       </div>
     </Link>
