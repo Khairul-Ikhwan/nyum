@@ -110,9 +110,11 @@ header {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-
-
   font-weight: 300;
+}
+
+.login-cta a:hover, .login-cta a:active, .login-cta a:focus {
+  font-weight: 500;
 }
 
 .login-cta hr {
