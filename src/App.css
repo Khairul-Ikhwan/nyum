@@ -11,6 +11,7 @@
   font-family: 'Roboto';
   --logo-text: 22px;
   --logo-text-small: 10px;
+  --box-shadow: 0 5px 8px 1px rgba(0, 0, 0, .5);
 }
 
 * {
@@ -24,6 +25,8 @@
 
 a {
   color: unset;
+  height: fit-content;
+  width: fit-content;
 }
 
 button {
@@ -80,7 +83,18 @@ header {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
+  gap: 25px
+}
 
+.section-box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-x: scroll;
+}
+
+.section-box::-webkit-scrollbar {
+  display: block;
 }
 
 .menu-drawer {
@@ -163,12 +177,12 @@ header {
   grid-template-columns: 2fr 1.5fr;
   grid-template-rows: 1fr 1fr;
   color: white;
+  gap: 10px;
 }
 
 .hero > div {
-  border: 5px solid var(--secondary);
   border-radius: 10px;
- 
+  box-shadow: var(--box-shadow);
 
 }
 

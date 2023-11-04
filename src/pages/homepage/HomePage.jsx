@@ -1,9 +1,12 @@
+import ProductCard from "../../components/card/ProductCard";
 import MainHero from "../../components/hero/MainHero";
-import General from "../../layouts/userTypes/Layout";
+import SectionBox from "../../components/ui/SectionBox";
+import Layout from "../../layouts/userTypes/Layout";
+import merchantData from "../../merchants.json";
 
 export default function HomePage() {
   return (
-    <General>
+    <Layout>
       <MainHero backgroundImage={"url(/assets/images/hero_shop.jpeg)"}>
         <div
           style={{
@@ -22,6 +25,32 @@ export default function HomePage() {
           <button>Learn More</button>
         </div>
       </MainHero>
-    </General>
+
+      <h1>Recently Added</h1>
+      <SectionBox>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            gap: "10px",
+            paddingBottom: "2%",
+            overflowX: "scroll",
+            width: "fit-content",
+          }}
+        >
+          {merchantData.merchants.map((merchant) =>
+            merchant.products.map((product, index) => (
+              <ProductCard
+                key={index}
+                productName={product.productName}
+                productPrice={product.productPrice}
+                productImg={product.productImage}
+                storeName={merchant.name}
+              />
+            ))
+          )}
+        </div>
+      </SectionBox>
+    </Layout>
   );
 }
