@@ -8,7 +8,7 @@ export default function GeneralNav() {
   return (
     <>
       <header>
-        <div style={{ alignSelf: "center", color: "var(--primary)" }}>
+        <div style={{ alignSelf: "center", color: "var(--dark)" }}>
           <h1>Nyum</h1>
         </div>
         <div className="nav-drawer" onClick={toggleMenu}>

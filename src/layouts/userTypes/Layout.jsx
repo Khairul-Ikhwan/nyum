@@ -1,6 +1,6 @@
 import GeneralNav from "../navigation/GeneralNav";
 
-export default function General({ children }) {
+export default function Layout({ children }) {
   return (
     <div className="page">
       <GeneralNav />
