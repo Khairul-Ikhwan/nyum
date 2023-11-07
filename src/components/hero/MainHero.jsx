@@ -8,7 +8,7 @@ export default function MainHero({ children, backgroundImage }) {
       <div className="ad" style={{ backgroundImage: backgroundImage }}>
         {children}
       </div>
-      <div className="recently-added" onClick={() => navigate("news/recent")}>
+      <div className="recent-news" onClick={() => navigate("news/recent")}>
         recent news
       </div>
       <div
