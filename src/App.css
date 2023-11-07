@@ -3,11 +3,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&family=Raleway:wght@100;200;300;400;500;600;700;800;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 :root {
-  --primary: #104c64;
-  --secondary: #c6c8D0;
-  --buttons: #b6410f;
-  --dark: #0d1d25;
-  --pri-alt: #d59d80;
+  --primary: rgba(16, 76, 100, 1);
+  --secondary: rgba(198, 200, 208, 1);
+  --buttons: rgba(182, 65, 15, 1);
+  --dark: rgba(13, 29, 37, 1);
+  --pri-alt: rgba(213, 157, 128, 1);
   font-family: 'Roboto';
   --logo-text: 22px;
   --logo-text-small: 10px;

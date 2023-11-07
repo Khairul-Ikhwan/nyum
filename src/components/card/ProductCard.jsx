@@ -15,21 +15,23 @@ export default function ProductCard({
       ) : (
         <img src="/assets/images/curry_puff.jpeg" />
       )}
-      <div className="text-container">
-        <div className="product-info">
-          <h4>{productName ? productName : "Product"}</h4>
-          <p>{storeName ? `by ${storeName}` : "Store Name"}</p>
+      <div className="items-container">
+        <div className="text-container">
+          <div className="product-info">
+            <h4>{productName ? productName : "Product"}</h4>
+            <p>{storeName ? `by ${storeName}` : "Store Name"}</p>
+          </div>
+          <div className="price">
+            <p style={{ fontWeight: "900" }}>
+              {productPrice ? `S$ ${productPrice}` : "Price not available"}
+            </p>
+          </div>
         </div>
-        <div className="price">
-          <p style={{ fontWeight: "900" }}>
-            {productPrice ? `S$ ${productPrice}` : "Price not available"}
-          </p>
+        <div className="button-container">
+          <Link to="/">
+            <button>View</button>
+          </Link>
         </div>
-      </div>
-      <div className="button-container">
-        <Link to="/">
-          <button>View</button>
-        </Link>
       </div>
     </div>
   );
