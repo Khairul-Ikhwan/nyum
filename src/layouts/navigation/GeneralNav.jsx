@@ -1,6 +1,7 @@
 import MenuDrawer from "../../components/ui/MenuDrawer";
 import NavDrawer from "../../components/ui/NavDrawer";
 import { useMenuDrawer } from "../../customHooks/useMenuDrawer";
+import { Link } from "react-router-dom";
 
 export default function GeneralNav({ storeLogo, storeName }) {
   const { isMenuOpen, closeMenu, toggleMenu } = useMenuDrawer();
@@ -64,12 +65,18 @@ export default function GeneralNav({ storeLogo, storeName }) {
               </div>
             </div>
           ) : (
-            <h1>Nyum</h1>
+            <Link to="/">
+              <h1>Nyum</h1>
+            </Link>
           )}
         </div>
         <div className="nav-drawer" onClick={toggleMenu}>
           {isMenuOpen ? (
-            <h3>X</h3>
+            <img
+              style={{ width: "25px" }}
+              src="/assets/images/ui/close.svg"
+              alt="close menu"
+            />
           ) : (
             <NavDrawer fill={"var(--primary)"} width={"30px"} />
           )}

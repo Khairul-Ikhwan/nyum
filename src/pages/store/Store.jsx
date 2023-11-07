@@ -17,8 +17,6 @@ export default function Store() {
     }
   }, [id]);
 
-  console.log(currentMerchant.logo);
-
   return (
     <Layout
       storeLogo={currentMerchant ? currentMerchant.logo : null}

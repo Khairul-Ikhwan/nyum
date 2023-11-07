@@ -19,12 +19,28 @@ export default function MenuDrawer({ className }) {
   return (
     <div className={`menu-drawer ${isVisible ? className : ""}`}>
       <div className="quick-link">
+        <MenuBobbles
+          menuLink={"/"}
+          menuTitle={"Home"}
+          menuImg={"/assets/images/ui/home.png"}
+        />
+        <MenuBobbles
+          menuLink={"/store"}
+          menuTitle={"Stores"}
+          menuImg={"/assets/images/ui/shop.png"}
+        />
+        <MenuBobbles
+          menuLink={"/events"}
+          menuTitle={"Events"}
+          menuImg={"/assets/images/ui/event.png"}
+        />
         <MenuBobbles />
         <MenuBobbles />
-        <MenuBobbles />
-        <MenuBobbles />
-        <MenuBobbles />
-        <MenuBobbles />
+        <MenuBobbles
+          menuLink={"/account"}
+          menuTitle={"Account"}
+          menuImg={"/assets/images/ui/account.svg"}
+        />
       </div>
       <div className="login-cta">
         <Link>

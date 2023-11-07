@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 
-export default function MenuBobbles() {
+export default function MenuBobbles({ menuTitle, menuImg, menuLink }) {
   return (
-    <Link to="/">
+    <Link to={menuLink} className="bobble-group">
       <div className="bobble">
-        <img src="/assets/images/demo_logo.svg" />
-        <p>This is a bobble</p>
+        <img src={`${menuImg}`} alt={`${menuTitle}`} />
       </div>
+      <p>{menuTitle}</p>
     </Link>
   );
 }

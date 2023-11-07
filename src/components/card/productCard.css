@@ -1,5 +1,5 @@
 .product-card {
-    width: 275px;
+    width: 250px;
     aspect-ratio: 1;
     background: var(--primary);
     border-radius: 10px;
@@ -10,10 +10,21 @@
     justify-items: center;
     align-items: center;
     overflow: hidden;
-    padding-bottom: 2%;
+    
     scroll-snap-align:start;  
-
     position: relative;
+}
+
+.product-card .loading-spinner {
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    place-content: center;
+    height: 100%;
+    width: 100%;
+    color: white;
+    gap: 15px;
+    font-weight: 100;
 }
 
 .product-card img {
