@@ -42,6 +42,7 @@ export default function HomePage() {
             merchant.products.map((product, index) => (
               <ProductCard
                 key={index}
+                id={merchant.id}
                 productName={product.productName}
                 productPrice={product.productPrice}
                 productImg={product.productImage}

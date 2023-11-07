@@ -1,5 +1,5 @@
 import "./productCard.css";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function ProductCard({
   backgroundImg,
@@ -7,7 +7,14 @@ export default function ProductCard({
   storeName,
   productPrice,
   productImg,
+  id,
 }) {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`store/${id}`);
+  };
+
   return (
     <div className="product-card" style={{ backgroundImage: backgroundImg }}>
       {productImg ? (
@@ -28,9 +35,7 @@ export default function ProductCard({
           </div>
         </div>
         <div className="button-container">
-          <Link to="/">
-            <button>View</button>
-          </Link>
+          <button onClick={handleClick}>View</button>
         </div>
       </div>
     </div>
