@@ -132,10 +132,10 @@ header {
 
 .menu-drawer .quick-link {
   display: flex;
-  flex-direction: row;
-  justify-content:space-around;
+  justify-content:space-between;
   flex-wrap: wrap;
-  gap: 10px
+  gap: 10px;
+  padding: 0 20%;
 }
 
 .bobble-group {
