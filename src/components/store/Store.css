@@ -1,0 +1,18 @@
+.product-shelf {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    height: max-content;
+    padding: 5% 2% 10% 2%;
+    justify-items: space-between;
+}
+
+@media (min-width: 600px){
+    .product-shelf {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+}

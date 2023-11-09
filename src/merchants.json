@@ -5,7 +5,7 @@
       "name": "Crofuffles",
       "logo": "/../../assets/images/demo_logo.svg",
       "products": [
-        { "unitType": "box of", "unitQty": 15,"productName": "Epok-Epok", "productPrice": 10, "productImage": "/../../assets/images/curry_puff.jpeg", "purchasedTimes" : 68, "desc" : "This is sedap man, beli lah. Saya penat tau masak byk-byk epok-epok hari hari.", "variants" : {
+        { "unitType": "box of", "unitQty": 15,"productName": "Epok-Epok", "productPrice": 10, "productImage": "/../../assets/images/curry_puff.jpeg", "purchasedTimes" : 12, "desc" : "This is sedap man, beli lah. Saya penat tau masak byk-byk epok-epok hari hari.", "variants" : {
           "variant1": {
             "name": "Potato",
             "priceModifier" : "0"
@@ -24,24 +24,24 @@
           }
           
         } },
-        { "productName": "Pancakes", "productPrice": 8, "productImage": "https://images-gmi-pmc.edge-generalmills.com/df109202-f5dd-45a1-99b4-f10939afd509.jpg" },
-        { "desc":"Try our latest addition to the Crofuffles family of bakes!", "unitType": "per packet", "productName": "Thins", "productPrice": 8, "productImage": "/../../assets/images/thins_by_crofuffles.png" }
+        { "productName": "Pancakes", "productPrice": 8, "purchasedTimes" : 0, "productImage": "https://images-gmi-pmc.edge-generalmills.com/df109202-f5dd-45a1-99b4-f10939afd509.jpg" },
+        { "purchasedTimes" : 0, "desc":"Try our latest addition to the Crofuffles family of bakes!", "unitType": "per packet", "productName": "Thins", "productPrice": 8, "productImage": "/../../assets/images/thins_by_crofuffles.png" }
       ]
     },
     {
       "id": "store2",
       "name": "Fruit Delights",
       "products": [
-        { "productName": "Fresh Fruit Salad", "productPrice": 8, "productImage": "https://fitfoodiefinds.com/wp-content/uploads/2020/05/salad-1.jpg" },
-        { "productName": "Fruit Smoothie", "productPrice": 6, "productImage": "https://www.evolvingtable.com/wp-content/uploads/2022/12/How-to-Make-Smoothie-1.jpg" }
+        { "purchasedTimes" : 32, "productName": "Fresh Fruit Salad", "productPrice": 8, "purchasedTimes" : 0, "productImage": "https://fitfoodiefinds.com/wp-content/uploads/2020/05/salad-1.jpg" },
+        { "purchasedTimes" : 0, "productName": "Fruit Smoothie", "productPrice": 6, "productImage": "https://www.evolvingtable.com/wp-content/uploads/2022/12/How-to-Make-Smoothie-1.jpg" }
       ]
     },
     {
       "id": "store3",
       "name": "WingMaster",
       "products": [
-        { "productName": "Spicy Chicken Wings", "productPrice": 12, "productImage": "https://www.thecookierookie.com/wp-content/uploads/2018/12/featured-baked-chicken-wings-reshoot.jpg" },
-        { "productName": "Garlic Parmesan Wings", "productPrice": 14, "productImage": "https://hips.hearstapps.com/del.h-cdn.co/assets/16/39/2048x1152/hd-aspect-1474920925-delish-parmesan-garlic-wings.jpg?resize=1200:*" }
+        { "purchasedTimes" : 12, "productName": "Spicy Chicken Wings", "productPrice": 12, "productImage": "https://www.thecookierookie.com/wp-content/uploads/2018/12/featured-baked-chicken-wings-reshoot.jpg" },
+        { "purchasedTimes" : 0, "productName": "Garlic Parmesan Wings", "productPrice": 14, "productImage": "https://hips.hearstapps.com/del.h-cdn.co/assets/16/39/2048x1152/hd-aspect-1474920925-delish-parmesan-garlic-wings.jpg?resize=1200:*" }
       ]
     }
   ]

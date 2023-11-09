@@ -34,8 +34,17 @@ export default function MenuDrawer({ className }) {
           menuTitle={"Events"}
           menuImg={"/assets/images/ui/event.png"}
         />
-        <MenuBobbles />
-        <MenuBobbles />
+        <MenuBobbles
+          menuLink={"/partner"}
+          menuImg={"/assets/images/ui/partner.svg"}
+          menuTitle={"Partner"}
+        />
+
+        <MenuBobbles
+          menuLink={"/faq"}
+          menuTitle={"FAQ"}
+          menuImg={"/assets/images/ui/faq.svg"}
+        />
         <MenuBobbles
           menuLink={"/account"}
           menuTitle={"Account"}

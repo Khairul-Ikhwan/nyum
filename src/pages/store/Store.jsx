@@ -1,8 +1,8 @@
-import SectionBox from "../../components/ui/SectionBox";
 import Layout from "../../layouts/userTypes/Layout";
 import { useParams } from "react-router";
 import { useEffect, useState } from "react";
 import merchantsData from "../../merchants.json";
+import StoreView from "../../components/store/StoreView";
 
 export default function Store() {
   const { id } = useParams();
@@ -22,13 +22,13 @@ export default function Store() {
       storeLogo={currentMerchant ? currentMerchant.logo : null}
       storeName={currentMerchant ? currentMerchant.name : null}
     >
-      <SectionBox>
-        {currentMerchant ? (
-          <h2>Welcome to the store page for {currentMerchant.name}</h2>
-        ) : (
-          <h2>Loading...</h2>
-        )}
-      </SectionBox>
+      {currentMerchant ? (
+        <>
+          <StoreView currentMerchant={currentMerchant} />
+        </>
+      ) : (
+        <h2>Merchant not found!</h2>
+      )}
     </Layout>
   );
 }

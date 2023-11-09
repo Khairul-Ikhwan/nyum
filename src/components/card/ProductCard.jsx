@@ -4,11 +4,14 @@ import { TailSpin } from "react-loader-spinner";
 import "./productCard.css";
 
 export default function ProductCard({
+  style,
   productName,
   storeName,
   productPrice,
   productImg,
   id,
+  purchasedTimes,
+  showButton = true,
 }) {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(true);
@@ -22,7 +25,7 @@ export default function ProductCard({
   };
 
   return (
-    <div className={`product-card ${isLoading ? "loading" : ""}`}>
+    <div style={style} className={`product-card ${isLoading ? "loading" : ""}`}>
       {isLoading ? (
         <div className="loading-spinner">
           <TailSpin color="var(--secondary)" height={50} width={50} />
@@ -39,7 +42,15 @@ export default function ProductCard({
             <div className="text-container">
               <div className="product-info">
                 <h4>{productName ? productName : "Product"}</h4>
-                <p>{storeName ? `by ${storeName}` : "Store Name"}</p>
+                {purchasedTimes !== undefined ? (
+                  purchasedTimes > 0 ? (
+                    <p>{`${purchasedTimes} purchased`}</p>
+                  ) : (
+                    <p>New Product</p>
+                  )
+                ) : (
+                  <p>{storeName ? `by ${storeName}` : ""}</p>
+                )}
               </div>
               <div className="price">
                 <p style={{ fontWeight: "900" }}>
@@ -47,9 +58,11 @@ export default function ProductCard({
                 </p>
               </div>
             </div>
-            <div className="button-container">
-              <button onClick={handleClick}>View</button>
-            </div>
+            {showButton && (
+              <div className="button-container">
+                <button onClick={handleClick}>View</button>
+              </div>
+            )}
           </div>
         </>
       )}
