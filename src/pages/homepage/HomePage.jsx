@@ -53,7 +53,6 @@ export default function HomePage() {
         </div>
       </SectionBox>
       <h1>Popular Stores</h1>
-      <SectionBox>insert popular stores here</SectionBox>
     </Layout>
   );
 }

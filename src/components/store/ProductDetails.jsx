@@ -8,10 +8,18 @@ const formatProductName = (productName) => {
     .replace(/[^\w-]+/g, "");
 };
 
+const renderUnitType = (unitType, unitQty) => {
+  if (unitQty === 1) {
+    return unitType;
+  } else {
+    return `${unitType}s`;
+  }
+};
+
 export default function ProductDetails({ currentMerchant }) {
   const { product } = useParams();
   const currentProduct = currentMerchant.products.find(
-    (p) => formatProductName(p.productName) == product
+    (p) => formatProductName(p.productName) === product
   );
 
   return (
@@ -19,14 +27,20 @@ export default function ProductDetails({ currentMerchant }) {
       <h1>Product details</h1>
       {currentProduct && (
         <div className="productDetails">
-          <img src={currentProduct.productImage} />
-          <h2>{currentProduct.productName}</h2>
-          <p>{currentProduct.desc}</p>
-          <p>
-            {currentMerchant.currency} {""}
-            {currentProduct.productPrice}
-          </p>
-          <button>Buy Now</button>
+          <img
+            src={currentProduct.productImage}
+            alt={currentProduct.productName}
+          />
+          <div className="text-field">
+            <h2>{currentProduct.productName}</h2>
+            <p>{currentProduct.desc}</p>
+            <p className="price">
+              {currentMerchant.currency} {""}
+              {currentProduct.productPrice} {""}
+              {renderUnitType(currentProduct.unitType, currentProduct.unitQty)}
+            </p>
+            <button>Buy Now</button>
+          </div>
         </div>
       )}
     </div>

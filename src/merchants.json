@@ -9,19 +9,19 @@
       "reviews": [
         {
           "reviewId": "review1",
-          "reviewText" : "Sedap dok, belum try haven't know",
+          "reviewText": "Sedap dok, belum try haven't know",
           "reviewDate": 1699582186,
           "reviewer": "Johan Dough"
         },
         {
           "reviewId": "review2",
-          "reviewText" : "I think the epok-epok oxygen is the best",
+          "reviewText": "I think the epok-epok oxygen is the best",
           "reviewDate": 1699082186,
           "reviewer": "Siti Sukamakan"
         },
         {
           "reviewId": "review3",
-          "reviewText" : "Why are the croffles not hangus ah",
+          "reviewText": "Why are the croffles not hangus ah",
           "reviewDate": 1699082186,
           "reviewer": "Ilikehangusthings"
         }
@@ -44,19 +44,22 @@
           }
         },
         {
+          "unitType": "each",
+          "unitQty": 1,
           "productName": "Pancakes",
           "productPrice": 8,
-          "purchasedTimes": 0,
+          "purchasedTimes": 5,
           "productImage": "https://images-gmi-pmc.edge-generalmills.com/df109202-f5dd-45a1-99b4-f10939afd509.jpg",
           "desc": "Delicious fluffy pancakes for a delightful morning."
         },
         {
-          "purchasedTimes": 0,
-          "desc": "Try our latest addition to the Crofuffles family of bakes!",
           "unitType": "per packet",
+          "unitQty": 1,
           "productName": "Thins",
           "productPrice": 8,
-          "productImage": "/../../assets/images/thins_by_crofuffles.png"
+          "purchasedTimes": 18,
+          "productImage": "/../../assets/images/thins_by_crofuffles.png",
+          "desc": "Try our latest addition to the Crofuffles family of bakes!"
         }
       ]
     },
@@ -65,16 +68,17 @@
       "name": "Fruit Delights",
       "dateCreated": 1695682186,
       "logo": "https://cdn.dribbble.com/users/506831/screenshots/5788937/media/8230f8f432bd25f1061085f8cb2be020.gif",
+      "currency": "SGD",
       "reviews": [
         {
           "reviewId": "review4",
-          "reviewText" : "The fresh fruit salad is amazing!",
+          "reviewText": "The fresh fruit salad is amazing!",
           "reviewDate": 1695782186,
           "reviewer": "HealthyEater123"
         },
         {
           "reviewId": "review5",
-          "reviewText" : "Refreshing smoothie, perfect for a hot day.",
+          "reviewText": "Refreshing smoothie, perfect for a hot day.",
           "reviewDate": 1695482186,
           "reviewer": "SmoothieLover"
         }
@@ -82,16 +86,20 @@
       "tags": ["organic", "healthy", "refreshing"],
       "products": [
         {
-          "purchasedTimes": 32,
+          "unitType": "each",
+          "unitQty": 1,
           "productName": "Fresh Fruit Salad",
           "productPrice": 8,
+          "purchasedTimes": 27,
           "productImage": "https://fitfoodiefinds.com/wp-content/uploads/2020/05/salad-1.jpg",
           "desc": "A refreshing blend of seasonal fruits for a healthy snack."
         },
         {
-          "purchasedTimes": 0,
+          "unitType": "each",
+          "unitQty": 1,
           "productName": "Fruit Smoothie",
           "productPrice": 6,
+          "purchasedTimes": 7,
           "productImage": "https://www.evolvingtable.com/wp-content/uploads/2022/12/How-to-Make-Smoothie-1.jpg",
           "desc": "Sip on a delightful fruit smoothie for a burst of energy."
         }
@@ -102,16 +110,17 @@
       "name": "WingMaster",
       "dateCreated": 1693882186,
       "logo": "https://cdn.dribbble.com/users/5186070/screenshots/16385816/hot-chicken-wings_4x.jpg",
+      "currency": "SGD",
       "reviews": [
         {
           "reviewId": "review6",
-          "reviewText" : "The spicy chicken wings are addictive!",
+          "reviewText": "The spicy chicken wings are addictive!",
           "reviewDate": 1693982186,
           "reviewer": "SpicyFoodFanatic"
         },
         {
           "reviewId": "review7",
-          "reviewText" : "Garlic parmesan wings are a must-try!",
+          "reviewText": "Garlic parmesan wings are a must-try!",
           "reviewDate": 1693882186,
           "reviewer": "WingConnoisseur"
         }
@@ -119,16 +128,20 @@
       "tags": ["spicy", "flavorful", "chicken-lovers"],
       "products": [
         {
-          "purchasedTimes": 12,
+          "unitType": "each",
+          "unitQty": 1,
           "productName": "Spicy Chicken Wings",
           "productPrice": 12,
+          "purchasedTimes": 8,
           "productImage": "https://www.thecookierookie.com/wp-content/uploads/2018/12/featured-baked-chicken-wings-reshoot.jpg",
           "desc": "Indulge in the bold flavors of our signature spicy chicken wings."
         },
         {
-          "purchasedTimes": 0,
+          "unitType": "each",
+          "unitQty": 1,
           "productName": "Garlic Parmesan Wings",
           "productPrice": 14,
+          "purchasedTimes": 30,
           "productImage": "https://hips.hearstapps.com/del.h-cdn.co/assets/16/39/2048x1152/hd-aspect-1474920925-delish-parmesan-garlic-wings.jpg?resize=1200:*",
           "desc": "Savor the rich taste of garlic parmesan with our exquisite wings."
         }
