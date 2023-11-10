@@ -57,7 +57,7 @@
 }
 
  .text-container {
-    font-size: .9rem;
+    font-size: .8rem;
     color: white;
     padding: 5% 5%;
     display: flex;
@@ -72,7 +72,7 @@
 
 
 .product-card .text-container p{
-    font-size: .85rem;
+    font-size: .75rem;
     font-weight: 300;
     max-width: 18ch;
 }
