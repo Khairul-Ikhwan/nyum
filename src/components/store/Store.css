@@ -43,6 +43,14 @@
     overflow: hidden ;
 }
 
+.review {
+    background-color: var(--pri-alt);
+    padding: 2%;
+    border-radius: 15px;
+    color: var(--dark);
+    border: .25px solid white;
+}
+
 
 
 @media (min-width: 600px){

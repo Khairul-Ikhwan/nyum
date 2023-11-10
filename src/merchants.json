@@ -5,6 +5,7 @@
       "name": "Crofuffles",
       "logo": "/../../assets/images/demo_logo.svg",
       "dateCreated": 1699482186,
+      "currency": "SGD",
       "reviews": [
         {
           "reviewId": "review1",

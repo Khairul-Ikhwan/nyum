@@ -33,7 +33,7 @@ export default function MerchantDetails({ currentMerchant }) {
         </div>
       </div>
 
-      <SectionBox>
+      <SectionBox className={"review"}>
         <h4>Recent Reviews</h4>
         <Reviews reviews={reviews} />
       </SectionBox>

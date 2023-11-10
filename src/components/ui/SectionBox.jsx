@@ -1,3 +1,3 @@
-export default function SectionBox({ children }) {
-  return <div className="section-box">{children}</div>;
+export default function SectionBox({ children, className }) {
+  return <div className={`section-box ${className}`}>{children}</div>;
 }

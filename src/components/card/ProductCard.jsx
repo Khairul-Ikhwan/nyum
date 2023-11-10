@@ -12,6 +12,7 @@ export default function ProductCard({
   id,
   purchasedTimes,
   showButton = true,
+  onClick,
 }) {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(true);
@@ -25,7 +26,11 @@ export default function ProductCard({
   };
 
   return (
-    <div style={style} className={`product-card ${isLoading ? "loading" : ""}`}>
+    <div
+      onClick={onClick}
+      style={style}
+      className={`product-card ${isLoading ? "loading" : ""}`}
+    >
       {isLoading ? (
         <div className="loading-spinner">
           <TailSpin color="var(--secondary)" height={50} width={50} />

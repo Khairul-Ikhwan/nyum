@@ -1,0 +1,28 @@
+.pdt-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.productDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    place-items: center
+}
+
+
+.productDetails img {
+    max-width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 15px;
+    place-self: center;
+}
+
+@media (min-width: 800px) {
+    .productDetails {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
