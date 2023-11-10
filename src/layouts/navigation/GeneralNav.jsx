@@ -9,7 +9,13 @@ export default function GeneralNav({ storeLogo, storeName }) {
   return (
     <>
       <header>
-        <div style={{ alignSelf: "center", color: "var(--dark)" }}>
+        <div
+          style={{
+            alignSelf: "center",
+            color: "var(--dark)",
+            display: "flex",
+          }}
+        >
           {storeLogo ? (
             <div
               style={{
@@ -18,22 +24,26 @@ export default function GeneralNav({ storeLogo, storeName }) {
                 gap: "10px",
               }}
             >
-              <div
-                style={{
-                  width: "50px",
-                  height: "50px",
-
-                  borderRadius: "50%",
-                }}
-              >
+              <div className="logo">
                 <img
                   src={storeLogo}
                   alt="Store Logo"
-                  style={{ width: "inherit" }}
+                  style={{ width: "100%" }}
                 />
               </div>
-              <div>
-                <h1>{storeName}</h1>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                }}
+              >
+                <h2
+                  style={{
+                    color: "var(--primary)",
+                  }}
+                >
+                  {storeName}
+                </h2>
                 <p
                   style={{
                     fontWeight: "300",

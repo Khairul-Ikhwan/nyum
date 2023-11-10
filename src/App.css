@@ -12,6 +12,8 @@
   --logo-text: 22px;
   --logo-text-small: 10px;
   --box-shadow: 0 5px 8px 1px rgba(0, 0, 0, .5);
+  --box-shadow-small: 0 2.5px 8px .5px rgba(0, 0, 0, .5);
+
 }
 
 ::-webkit-scrollbar {
@@ -87,7 +89,7 @@ header {
   flex-direction: row;
   justify-content: space-between;
   padding: 10px 0px;
-  
+  justify-items: center;
 }
 
 .children {
@@ -261,6 +263,32 @@ header {
   font-weight: 300;
   color: var(--primary);
 }
+
+.pill {
+  max-width: fit-content;
+  border: 1px solid var(--primary);
+  background: white;
+  padding: .25rem;
+  border-radius: 1.2rem;
+  color: var(--primary);
+}
+
+.pill p {
+  font-weight: 900;
+  font-size: .8rem;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  place-content: center;
+  place-self: center;
+  box-shadow: var(--box-shadow-small);
+}
+
 
 @media (max-width: 1050px) {
   

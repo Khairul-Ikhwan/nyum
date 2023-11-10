@@ -4,44 +4,85 @@
       "id": "store1",
       "name": "Crofuffles",
       "logo": "/../../assets/images/demo_logo.svg",
+      "dateCreated": 1699482186,
+      "tags": ["halal", "muslim-owned", "vegan-friendly", "pro-shop"],
       "products": [
-        { "unitType": "box of", "unitQty": 15,"productName": "Epok-Epok", "productPrice": 10, "productImage": "/../../assets/images/curry_puff.jpeg", "purchasedTimes" : 12, "desc" : "This is sedap man, beli lah. Saya penat tau masak byk-byk epok-epok hari hari.", "variants" : {
-          "variant1": {
-            "name": "Potato",
-            "priceModifier" : "0"
-          },
-          "variant2": {
-            "name": "Sardine",
-            "priceModifier" : "0"
-          },
-          "variant3": {
-            "name": "Oxygen",
-            "priceModifier" : "0"
-          },
-          "variant4": {
-            "name": "Egg",
-            "priceModifier" : "0"
+        {
+          "unitType": "box of",
+          "unitQty": 15,
+          "productName": "Epok-Epok",
+          "productPrice": 10,
+          "productImage": "/../../assets/images/curry_puff.jpeg",
+          "purchasedTimes": 12,
+          "desc": "This is sedap man, beli lah. Saya penat tau masak byk-byk epok-epok hari hari.",
+          "variants": {
+            "variant1": { "name": "Potato", "priceModifier": "0" },
+            "variant2": { "name": "Sardine", "priceModifier": "0" },
+            "variant3": { "name": "Oxygen", "priceModifier": "0" },
+            "variant4": { "name": "Egg", "priceModifier": "0" }
           }
-          
-        } },
-        { "productName": "Pancakes", "productPrice": 8, "purchasedTimes" : 0, "productImage": "https://images-gmi-pmc.edge-generalmills.com/df109202-f5dd-45a1-99b4-f10939afd509.jpg" },
-        { "purchasedTimes" : 0, "desc":"Try our latest addition to the Crofuffles family of bakes!", "unitType": "per packet", "productName": "Thins", "productPrice": 8, "productImage": "/../../assets/images/thins_by_crofuffles.png" }
+        },
+        {
+          "productName": "Pancakes",
+          "productPrice": 8,
+          "purchasedTimes": 0,
+          "productImage": "https://images-gmi-pmc.edge-generalmills.com/df109202-f5dd-45a1-99b4-f10939afd509.jpg",
+          "desc": "Delicious fluffy pancakes for a delightful morning."
+        },
+        {
+          "purchasedTimes": 0,
+          "desc": "Try our latest addition to the Crofuffles family of bakes!",
+          "unitType": "per packet",
+          "productName": "Thins",
+          "productPrice": 8,
+          "productImage": "/../../assets/images/thins_by_crofuffles.png"
+        }
       ]
     },
     {
       "id": "store2",
       "name": "Fruit Delights",
+      "dateCreated": 1695682186,
+      "logo": "https://cdn.dribbble.com/users/506831/screenshots/5788937/media/8230f8f432bd25f1061085f8cb2be020.gif",
+      "tags": ["organic", "healthy", "refreshing"],
       "products": [
-        { "purchasedTimes" : 32, "productName": "Fresh Fruit Salad", "productPrice": 8, "purchasedTimes" : 0, "productImage": "https://fitfoodiefinds.com/wp-content/uploads/2020/05/salad-1.jpg" },
-        { "purchasedTimes" : 0, "productName": "Fruit Smoothie", "productPrice": 6, "productImage": "https://www.evolvingtable.com/wp-content/uploads/2022/12/How-to-Make-Smoothie-1.jpg" }
+        {
+          "purchasedTimes": 32,
+          "productName": "Fresh Fruit Salad",
+          "productPrice": 8,
+          "productImage": "https://fitfoodiefinds.com/wp-content/uploads/2020/05/salad-1.jpg",
+          "desc": "A refreshing blend of seasonal fruits for a healthy snack."
+        },
+        {
+          "purchasedTimes": 0,
+          "productName": "Fruit Smoothie",
+          "productPrice": 6,
+          "productImage": "https://www.evolvingtable.com/wp-content/uploads/2022/12/How-to-Make-Smoothie-1.jpg",
+          "desc": "Sip on a delightful fruit smoothie for a burst of energy."
+        }
       ]
     },
     {
       "id": "store3",
       "name": "WingMaster",
+      "dateCreated": 1693882186,
+      "logo": "https://cdn.dribbble.com/users/5186070/screenshots/16385816/hot-chicken-wings_4x.jpg",
+      "tags": ["spicy", "flavorful", "chicken-lovers"],
       "products": [
-        { "purchasedTimes" : 12, "productName": "Spicy Chicken Wings", "productPrice": 12, "productImage": "https://www.thecookierookie.com/wp-content/uploads/2018/12/featured-baked-chicken-wings-reshoot.jpg" },
-        { "purchasedTimes" : 0, "productName": "Garlic Parmesan Wings", "productPrice": 14, "productImage": "https://hips.hearstapps.com/del.h-cdn.co/assets/16/39/2048x1152/hd-aspect-1474920925-delish-parmesan-garlic-wings.jpg?resize=1200:*" }
+        {
+          "purchasedTimes": 12,
+          "productName": "Spicy Chicken Wings",
+          "productPrice": 12,
+          "productImage": "https://www.thecookierookie.com/wp-content/uploads/2018/12/featured-baked-chicken-wings-reshoot.jpg",
+          "desc": "Indulge in the bold flavors of our signature spicy chicken wings."
+        },
+        {
+          "purchasedTimes": 0,
+          "productName": "Garlic Parmesan Wings",
+          "productPrice": 14,
+          "productImage": "https://hips.hearstapps.com/del.h-cdn.co/assets/16/39/2048x1152/hd-aspect-1474920925-delish-parmesan-garlic-wings.jpg?resize=1200:*",
+          "desc": "Savor the rich taste of garlic parmesan with our exquisite wings."
+        }
       ]
     }
   ]
