@@ -10,7 +10,10 @@
 .merchant-list {
     display: flex;
     flex-direction: row;
-    gap: 20px;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow: hidden;
 }
 
 .merchant-item {
@@ -20,6 +23,12 @@
     gap: 5px;
     cursor: pointer;
     font-weight: 600;
+    max-width: 100px;
+    text-align: center;
+}
+
+.merchant-item p {
+    font-size: .9rem;
 }
 
 .merchant-item img {
