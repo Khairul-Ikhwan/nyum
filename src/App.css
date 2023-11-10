@@ -106,6 +106,7 @@ header {
   flex-direction: column;
   gap: 10px;
   overflow-x: scroll;
+  padding: 0 .8%;
 }
 
 
