@@ -34,6 +34,10 @@
     place-self: center;
 }
 
+.productDetails button {
+    place-self: flex-end;
+}
+
 @media (min-width: 800px) {
     .productDetails {
         flex-direction: row;
