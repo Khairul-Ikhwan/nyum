@@ -7,6 +7,25 @@
     justify-items: space-between;
 }
 
+.merchant-list {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.merchant-item {
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    gap: 5px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.merchant-item img {
+    overflow: hidden ;
+}
+
 @media (min-width: 600px){
     .product-shelf {
         display: flex;
