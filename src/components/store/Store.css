@@ -7,6 +7,14 @@
     justify-items: space-between;
 }
 
+.merchant-details 
+{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: flex-end;
+}
+
 .merchant-list {
     display: flex;
     flex-direction: row;

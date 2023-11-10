@@ -8,7 +8,6 @@ export default function StoreView({ currentMerchant }) {
 
   return (
     <>
-      <MerchantDetails currentMerchant={currentMerchant} />
       <SectionBox>
         <h2>All Products by {currentMerchant.name}</h2>
         <div className="product-shelf">
@@ -24,6 +23,9 @@ export default function StoreView({ currentMerchant }) {
             />
           ))}
         </div>
+      </SectionBox>
+      <SectionBox>
+        <MerchantDetails currentMerchant={currentMerchant} />
       </SectionBox>
     </>
   );

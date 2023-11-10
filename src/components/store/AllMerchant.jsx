@@ -1,19 +1,15 @@
 import merchantData from "../../merchants.json";
-import SectionBox from "../ui/SectionBox";
 import "./Store.css";
 import { useNavigate } from "react-router";
 
 export default function AllMerchant() {
   const navigate = useNavigate();
-
-  console.log(merchantData);
-
   function handleClick(storeId) {
     navigate(`/store/${storeId}`);
   }
 
   return (
-    <SectionBox>
+    <>
       <h1>All Merchants</h1>
       <div className="merchant-list">
         {merchantData.merchants.map((merchant) => (
@@ -31,6 +27,6 @@ export default function AllMerchant() {
           </div>
         ))}
       </div>
-    </SectionBox>
+    </>
   );
 }

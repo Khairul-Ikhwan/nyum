@@ -5,6 +5,26 @@
       "name": "Crofuffles",
       "logo": "/../../assets/images/demo_logo.svg",
       "dateCreated": 1699482186,
+      "reviews": [
+        {
+          "reviewId": "review1",
+          "reviewText" : "Sedap dok, belum try haven't know",
+          "reviewDate": 1699582186,
+          "reviewer": "Johan Dough"
+        },
+        {
+          "reviewId": "review2",
+          "reviewText" : "I think the epok-epok oxygen is the best",
+          "reviewDate": 1699082186,
+          "reviewer": "Siti Sukamakan"
+        },
+        {
+          "reviewId": "review3",
+          "reviewText" : "Why are the croffles not hangus ah",
+          "reviewDate": 1699082186,
+          "reviewer": "Ilikehangusthings"
+        }
+      ],
       "tags": ["halal", "muslim-owned", "vegan-friendly", "pro-shop"],
       "products": [
         {
@@ -44,6 +64,20 @@
       "name": "Fruit Delights",
       "dateCreated": 1695682186,
       "logo": "https://cdn.dribbble.com/users/506831/screenshots/5788937/media/8230f8f432bd25f1061085f8cb2be020.gif",
+      "reviews": [
+        {
+          "reviewId": "review4",
+          "reviewText" : "The fresh fruit salad is amazing!",
+          "reviewDate": 1695782186,
+          "reviewer": "HealthyEater123"
+        },
+        {
+          "reviewId": "review5",
+          "reviewText" : "Refreshing smoothie, perfect for a hot day.",
+          "reviewDate": 1695482186,
+          "reviewer": "SmoothieLover"
+        }
+      ],
       "tags": ["organic", "healthy", "refreshing"],
       "products": [
         {
@@ -67,6 +101,20 @@
       "name": "WingMaster",
       "dateCreated": 1693882186,
       "logo": "https://cdn.dribbble.com/users/5186070/screenshots/16385816/hot-chicken-wings_4x.jpg",
+      "reviews": [
+        {
+          "reviewId": "review6",
+          "reviewText" : "The spicy chicken wings are addictive!",
+          "reviewDate": 1693982186,
+          "reviewer": "SpicyFoodFanatic"
+        },
+        {
+          "reviewId": "review7",
+          "reviewText" : "Garlic parmesan wings are a must-try!",
+          "reviewDate": 1693882186,
+          "reviewer": "WingConnoisseur"
+        }
+      ],
       "tags": ["spicy", "flavorful", "chicken-lovers"],
       "products": [
         {
