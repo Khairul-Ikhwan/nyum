@@ -42,6 +42,7 @@ export default function ProductDetails({ currentMerchant }) {
           />
           {isModalVisible ? (
             <AddToCartModal
+              currentMerchant={currentMerchant.id}
               currentProduct={currentProduct}
               closeModal={closeModal}
             />

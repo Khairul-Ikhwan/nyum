@@ -1,14 +1,31 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "../ui/css/Modal.css";
+import { useNavigate } from "react-router";
 
-export default function AddToCartModal({ currentProduct, closeModal }) {
+export default function AddToCartModal({
+  currentProduct,
+  closeModal,
+  currentMerchant,
+}) {
+  const navigate = useNavigate();
+  const merchant = { currentMerchant };
+  const [cart, setCart] = useState([]);
+
+  useEffect(() => {
+    const key = `cart_${currentProduct.productName}_${currentMerchant}`;
+    const storedCart = sessionStorage.getItem(key);
+    if (storedCart) {
+      setCart(JSON.parse(storedCart));
+    }
+  }, [currentProduct, currentMerchant]);
+
   const [variantQuantities, setVariantQuantities] = useState(() => {
     const initialQuantities = {};
-    if (currentProduct.variants) {
+    if (currentProduct && currentProduct.variants) {
       Object.values(currentProduct.variants).forEach((variant) => {
         initialQuantities[variant.name] = 0;
       });
-    } else {
+    } else if (currentProduct) {
       initialQuantities[currentProduct.productName] = 0;
     }
     return initialQuantities;
@@ -28,7 +45,10 @@ export default function AddToCartModal({ currentProduct, closeModal }) {
   const handleIncrease = (variantName) => {
     setVariantQuantities((prevQuantities) => {
       const newQuantity = prevQuantities[variantName] + 1;
-      const variant = currentProduct.variants[variantName];
+      const variant =
+        currentProduct && currentProduct.variants
+          ? currentProduct.variants[variantName]
+          : undefined;
 
       const updatedQuantities = {
         ...prevQuantities,
@@ -44,12 +64,45 @@ export default function AddToCartModal({ currentProduct, closeModal }) {
     });
   };
 
+  const resetVariantQuantities = () => {
+    const initialQuantities = {};
+    if (currentProduct && currentProduct.variants) {
+      Object.values(currentProduct.variants).forEach((variant) => {
+        initialQuantities[variant.name] = 0;
+      });
+    } else if (currentProduct) {
+      initialQuantities[currentProduct.productName] = 0;
+    }
+    setVariantQuantities(initialQuantities);
+  };
+
   function handleATC() {
-    const qtyString = JSON.stringify(variantQuantities, null);
-    alert(qtyString);
+    const qtyString = JSON.stringify(variantQuantities);
+
+    // Use the state updater form of setCart
+    setCart((prevCart) => [
+      ...prevCart,
+      { merchant: merchant, quantities: qtyString },
+    ]);
+
+    // After the state has been updated, use the updated cart
+    // to store in sessionStorage
+    setCart((updatedCart) => {
+      const key = `cart_${currentProduct.productName}_${currentMerchant}`;
+      sessionStorage.setItem(key, JSON.stringify(updatedCart));
+      return updatedCart;
+    });
+
+    resetVariantQuantities();
   }
 
-  // Calculate the total quantity of variants
+  function handleStore() {
+    closeModal();
+    navigate(`store/${currentMerchant}`);
+  }
+
+  console.log(cart);
+
   const totalVariantQty = Object.values(variantQuantities).reduce(
     (total, qty) => total + qty,
     0
@@ -66,12 +119,14 @@ export default function AddToCartModal({ currentProduct, closeModal }) {
         </div>
         <div className="ATC-child">
           <div>
-            {currentProduct.unitQty
+            {currentProduct &&
+            currentProduct.unitQty &&
+            currentProduct.unitQty > 1
               ? `Select up to ${currentProduct.unitQty}`
               : ""}
           </div>
 
-          {currentProduct.variants ? (
+          {currentProduct && currentProduct.variants ? (
             <div className="prune-the-variants">
               {Object.values(currentProduct.variants).map((variant) => (
                 <div key={variant.name} className="variant-child">
@@ -109,27 +164,45 @@ export default function AddToCartModal({ currentProduct, closeModal }) {
             </div>
           ) : (
             <div className="variant-child">
-              <p>{currentProduct.productName}</p>
+              <p>{currentProduct && currentProduct.productName}</p>
               <div className="buttons">
                 <button
-                  onClick={() => handleDecrease(currentProduct.productName)}
-                  disabled={variantQuantities[currentProduct.productName] <= 0}
+                  onClick={() =>
+                    handleDecrease(currentProduct && currentProduct.productName)
+                  }
+                  disabled={
+                    variantQuantities[
+                      currentProduct && currentProduct.productName
+                    ] <= 0
+                  }
                 >
                   -
                 </button>
                 <input
                   placeholder="0"
-                  value={String(variantQuantities[currentProduct.productName])}
+                  value={String(
+                    variantQuantities[
+                      currentProduct && currentProduct.productName
+                    ]
+                  )}
                   disabled
                 />
-                {totalVariantQty >= currentProduct.unitQty ? (
+                {totalVariantQty >= currentProduct && currentProduct.unitQty ? (
                   <button className="disabled">+</button>
                 ) : (
                   <button
-                    onClick={() => handleIncrease(currentProduct.productName)}
-                    disabled={totalVariantQty >= currentProduct.unitQty}
+                    onClick={() =>
+                      handleIncrease(
+                        currentProduct && currentProduct.productName
+                      )
+                    }
+                    disabled={
+                      totalVariantQty >= currentProduct &&
+                      currentProduct.unitQty
+                    }
                     className={
-                      totalVariantQty >= currentProduct.unitQty
+                      totalVariantQty >= currentProduct &&
+                      currentProduct.unitQty
                         ? "disabled"
                         : ""
                     }
@@ -141,7 +214,17 @@ export default function AddToCartModal({ currentProduct, closeModal }) {
             </div>
           )}
         </div>
-        <button onClick={handleATC}>Confirm</button>
+        <div className="button-group">
+          {totalVariantQty > 0 && (
+            <>
+              <button onClick={handleATC}>Add More Items</button>
+              <button>Checkout</button>
+            </>
+          )}
+          {totalVariantQty < 1 && (
+            <button onClick={handleStore}>Back to Store</button>
+          )}
+        </div>
       </div>
     </>
   );

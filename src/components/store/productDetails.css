@@ -103,6 +103,13 @@
     border: 1px solid var(--dark);
 }
 
+.ATCmodal .button-group {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
 @media (min-width: 800px) {
     .productDetails {
         flex-direction: row;
