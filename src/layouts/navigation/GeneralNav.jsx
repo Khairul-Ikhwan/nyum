@@ -1,9 +1,9 @@
 import MenuDrawer from "../../components/ui/MenuDrawer";
 import NavDrawer from "../../components/ui/NavDrawer";
-import Cart from "../../components/ui/cart";
 import { useMenuDrawer } from "../../customHooks/useMenuDrawer";
 import { useCartDrawer } from "../../customHooks/useCartDrawer";
 import { Link } from "react-router-dom";
+import Cart from "../../components/ui/Cart";
 
 export default function GeneralNav({ storeLogo, storeName }) {
   const { isMenuOpen, setIsMenuOpen, closeMenu, toggleMenu } = useMenuDrawer();
