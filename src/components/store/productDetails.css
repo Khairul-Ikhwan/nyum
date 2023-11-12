@@ -14,12 +14,15 @@
 
 .productDetails .text-field {
     background: var(--pri-alt);
-    padding: 2.5% 5%;
+    padding: 3% 5%;
     border-radius: 15px;
 
     display: flex;
     flex-direction: column;
     gap: 15px;
+
+    width: 100%;
+    max-width: 450px;
 }
 
 .productDetails .text-field .price {
@@ -27,7 +30,8 @@
 }
 
 .productDetails img {
-    max-width: 100%;
+    width: 100%;
+    max-width: 450px;
     aspect-ratio: 1;
     object-fit: cover;
     border-radius: 15px;
@@ -38,11 +42,69 @@
     place-self: flex-end;
 }
 
+ .text-field.ATCmodal {
+    min-height: 100px;
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    padding: 2.5% 4%;
+    gap: 25px
+}
+
+.close.ATC {
+    position: relative;
+    top: 0;
+    right: 0;
+}
+
+.ATCmodal .ATC-child {
+
+
+}
+
+.prune-the-variants {
+    display: flex;
+    flex-direction: column;
+    gap: 10px
+}
+
+.variant-child {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.variant-child > :first-child {
+    font-weight: 300;
+    font-size: 1.1rem;
+    font-style: italic;
+}
+
+.variant-child input {
+    max-width: 30px;
+    height: 30px;
+    text-align: center;
+    border: none;
+    background-color: transparent;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.ATC-child button {
+    background: white;
+    color: black;
+    padding: 10px 12px 10px;
+}
+
 @media (min-width: 800px) {
     .productDetails {
         flex-direction: row;
-        flex-wrap: wrap;
         place-content: center;
+    }
+
+    .productDetails .text-field{
+        max-width: unset;
     }
 
     .productDetails img {
