@@ -8,7 +8,6 @@ export default function AddToCartModal({
   currentMerchant,
 }) {
   const navigate = useNavigate();
-  const merchant = { currentMerchant };
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
@@ -37,7 +36,6 @@ export default function AddToCartModal({
         ...prevQuantities,
         [variantName]: Math.max(0, prevQuantities[variantName] - 1),
       };
-
       return updatedQuantities;
     });
   };
@@ -76,32 +74,36 @@ export default function AddToCartModal({
     setVariantQuantities(initialQuantities);
   };
 
-  function handleATC() {
-    const qtyString = JSON.stringify(variantQuantities);
+  const handleATC = () => {
+    // Retrieve the existing cart from sessionStorage
+    const existingCart =
+      JSON.parse(sessionStorage.getItem(`cart_${currentMerchant}`)) || [];
 
-    // Use the state updater form of setCart
-    setCart((prevCart) => [
-      ...prevCart,
-      { merchant: merchant, quantities: qtyString },
-    ]);
+    // Update the cart with the new item
+    const updatedCart = [
+      ...existingCart,
+      {
+        productName: currentProduct.productName,
+        quantities: variantQuantities,
+      },
+    ];
 
-    // After the state has been updated, use the updated cart
-    // to store in sessionStorage
-    setCart((updatedCart) => {
-      const key = `cart_${currentProduct.productName}_${currentMerchant}`;
-      sessionStorage.setItem(key, JSON.stringify(updatedCart));
-      return updatedCart;
-    });
+    // Store the updated cart in sessionStorage
+    sessionStorage.setItem(
+      `cart_${currentMerchant}`,
+      JSON.stringify(updatedCart)
+    );
+
+    // Update the state if necessary (you can skip this step if you don't need the cart in state)
+    setCart(updatedCart);
 
     resetVariantQuantities();
-  }
+  };
 
-  function handleStore() {
+  const handleStore = () => {
     closeModal();
     navigate(`store/${currentMerchant}`);
-  }
-
-  console.log(cart);
+  };
 
   const totalVariantQty = Object.values(variantQuantities).reduce(
     (total, qty) => total + qty,

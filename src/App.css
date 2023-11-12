@@ -78,11 +78,20 @@ button {
 
 .nav-drawer {
   display: flex;
+  flex-direction: row;
+  gap: 10px;
   place-content: center;
   width: max-content;
   cursor: pointer;
-  align-self: center
+  align-self: center;
+  align-items: center;
+  justify-content: center;
 }
+
+.nav-drawer img :first-child{
+  align-self: flex-start;
+}
+
 
 header {
   display: flex;
@@ -131,6 +140,12 @@ header {
 
 .menu-drawer.open {
   opacity: 1;
+}
+
+.menu-drawer.cart {
+  max-height: 400px;
+  overflow-x: scroll;
+  box-shadow: var(--box-shadow);
 }
 
 .menu-drawer .quick-link {

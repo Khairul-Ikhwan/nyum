@@ -1,10 +1,13 @@
 import MenuDrawer from "../../components/ui/MenuDrawer";
 import NavDrawer from "../../components/ui/NavDrawer";
+import Cart from "../../components/ui/cart";
 import { useMenuDrawer } from "../../customHooks/useMenuDrawer";
+import { useCartDrawer } from "../../customHooks/useCartDrawer";
 import { Link } from "react-router-dom";
 
 export default function GeneralNav({ storeLogo, storeName }) {
   const { isMenuOpen, setIsMenuOpen, closeMenu, toggleMenu } = useMenuDrawer();
+  const { isCartOpen, toggleCart } = useCartDrawer();
 
   return (
     <>
@@ -80,15 +83,24 @@ export default function GeneralNav({ storeLogo, storeName }) {
             </Link>
           )}
         </div>
-        <div className="nav-drawer" onClick={toggleMenu}>
+        <div className="nav-drawer">
+          <img
+            style={{ width: "35px" }}
+            src="/assets/images/ui/cart.png"
+            onClick={toggleCart}
+          />
+
           {isMenuOpen ? (
             <img
               style={{ width: "25px" }}
               src="/assets/images/ui/close.svg"
               alt="close menu"
+              onClick={toggleMenu}
             />
           ) : (
-            <NavDrawer fill={"var(--primary)"} width={"30px"} />
+            <div onClick={toggleMenu}>
+              <NavDrawer fill={"var(--primary)"} width={"30px"} />
+            </div>
           )}
         </div>
       </header>
@@ -99,6 +111,11 @@ export default function GeneralNav({ storeLogo, storeName }) {
             setIsMenuOpen={setIsMenuOpen}
             className={isMenuOpen ? "open" : ""}
           />
+        </div>
+      )}
+      {isCartOpen && (
+        <div>
+          <Cart toggleCart={toggleCart} className={isCartOpen ? "open" : ""} />
         </div>
       )}
     </>
