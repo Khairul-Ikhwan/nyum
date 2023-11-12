@@ -4,13 +4,15 @@ import { useEffect, useState } from "react";
 import merchantsData from "../../merchants.json";
 import StoreView from "../../components/store/StoreView";
 import AllMerchant from "../../components/store/AllMerchant";
+import { TailSpin } from "react-loader-spinner";
 
 export default function Store() {
   const { id } = useParams();
   const [currentMerchant, setCurrentMerchant] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Check if id is provided
+    setIsLoading(true);
     if (id) {
       const findMerchant = merchantsData.merchants.find(
         (merchant) => merchant.id === id
@@ -18,13 +20,12 @@ export default function Store() {
       if (findMerchant) {
         setCurrentMerchant(findMerchant);
       } else {
-        // Handle case where the provided id is not found
         setCurrentMerchant(null);
       }
     } else {
-      // Handle case where no id is provided
       setCurrentMerchant(null);
     }
+    setIsLoading(false);
   }, [id]);
 
   return (
@@ -32,7 +33,9 @@ export default function Store() {
       storeLogo={currentMerchant ? currentMerchant.logo : null}
       storeName={currentMerchant ? currentMerchant.name : null}
     >
-      {currentMerchant !== null ? (
+      {isLoading ? (
+        <TailSpin color="var(--primary)" width={50} height={50} />
+      ) : currentMerchant !== null ? (
         currentMerchant ? (
           <StoreView currentMerchant={currentMerchant} />
         ) : (

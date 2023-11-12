@@ -13,8 +13,10 @@ const formatProductName = (productName) => {
 const renderUnitType = (unitType, unitQty) => {
   if (unitQty === 1) {
     return unitType;
+  } else if (unitQty > 1) {
+    return `${unitType} of ${unitQty}`;
   } else {
-    return `${unitType}s`;
+    return unitType;
   }
 };
 

@@ -4,7 +4,7 @@ import { useMenuDrawer } from "../../customHooks/useMenuDrawer";
 import { Link } from "react-router-dom";
 
 export default function GeneralNav({ storeLogo, storeName }) {
-  const { isMenuOpen, closeMenu, toggleMenu } = useMenuDrawer();
+  const { isMenuOpen, setIsMenuOpen, closeMenu, toggleMenu } = useMenuDrawer();
 
   return (
     <>
@@ -96,6 +96,7 @@ export default function GeneralNav({ storeLogo, storeName }) {
         <div>
           <MenuDrawer
             onClose={closeMenu}
+            setIsMenuOpen={setIsMenuOpen}
             className={isMenuOpen ? "open" : ""}
           />
         </div>

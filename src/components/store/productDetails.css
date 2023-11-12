@@ -14,7 +14,7 @@
 
 .productDetails .text-field {
     background: var(--pri-alt);
-    padding: 3% 5%;
+    padding: 5%;
     border-radius: 15px;
 
     display: flex;
@@ -27,6 +27,7 @@
 
 .productDetails .text-field .price {
     font-weight: 900;
+    font-style: italic;
 }
 
 .productDetails img {
@@ -47,19 +48,17 @@
     width: 100%;
     flex-grow: 1;
     display: flex;
-    padding: 2.5% 4%;
-    gap: 25px
+    padding: 5% 4%;
+    gap: 25px;
+
+    background-color: white;
+    border: 2px solid var(--pri-alt);
 }
 
-.close.ATC {
-    position: relative;
-    top: 0;
-    right: 0;
-}
-
-.ATCmodal .ATC-child {
-
-
+.ATC-util {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .prune-the-variants {
@@ -91,10 +90,17 @@
     font-size: 1rem;
 }
 
+.ATC-child {
+    display: flex;
+    flex-direction: column;
+    gap: 20px
+}
+
 .ATC-child button {
     background: white;
     color: black;
     padding: 10px 12px 10px;
+    border: 1px solid var(--dark);
 }
 
 @media (min-width: 800px) {

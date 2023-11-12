@@ -31,5 +31,6 @@ export function useMenuDrawer () {
         openMenu,
         closeMenu,
         toggleMenu,
+        setIsMenuOpen,
       };
 }

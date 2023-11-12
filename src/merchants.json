@@ -29,7 +29,7 @@
       "tags": ["halal", "muslim-owned", "vegan-friendly", "pro-shop"],
       "products": [
         {
-          "unitType": "box of",
+          "unitType": "per box",
           "unitQty": 15,
           "productName": "Epok-Epok",
           "productPrice": 10,
