@@ -79,24 +79,28 @@ export default function AddToCartModal({
     const existingCart =
       JSON.parse(sessionStorage.getItem(`cart_${currentMerchant}`)) || [];
 
+    const totalPrice = currentProduct.variants
+      ? currentProduct.productPrice // If there are variants, set totalPrice to 0 (as it will be calculated separately)
+      : currentProduct.productPrice * totalVariantQty;
     // Update the cart with the new item
     const updatedCart = [
       ...existingCart,
       {
         productName: currentProduct.productName,
         quantities: variantQuantities,
+        price: totalPrice,
       },
     ];
 
     // Store the updated cart in sessionStorage
     sessionStorage.setItem(
       `cart_${currentMerchant}`,
-      JSON.stringify(updatedCart)
+      JSON.stringify(updatedCart),
+      console.log(updatedCart)
     );
 
     // Update the state if necessary (you can skip this step if you don't need the cart in state)
     setCart(updatedCart);
-
     resetVariantQuantities();
   };
 
@@ -217,13 +221,10 @@ export default function AddToCartModal({
           )}
         </div>
         <div className="button-group">
-          {totalVariantQty > 0 && (
-            <>
-              <button onClick={handleATC}>Add More Items</button>
-              <button>Checkout</button>
-            </>
+          {totalVariantQty >= currentProduct.unitQty && (
+            <button onClick={handleATC}>Add To Cart</button>
           )}
-          {totalVariantQty < 1 && (
+          {totalVariantQty < currentProduct.unitQty && (
             <button onClick={handleStore}>Back to Store</button>
           )}
         </div>

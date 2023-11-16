@@ -2,6 +2,7 @@ import { useParams } from "react-router";
 import { useModal } from "../../customHooks/useModal";
 import "./productDetails.css";
 import AddToCartModal from "./AddToCartModal";
+import { useNavigate } from "react-router";
 
 const formatProductName = (productName) => {
   return productName
@@ -21,6 +22,7 @@ const renderUnitType = (unitType, unitQty) => {
 };
 
 export default function ProductDetails({ currentMerchant }) {
+  const navigate = useNavigate();
   const { product } = useParams();
   const { isModalVisible, openModal, closeModal } = useModal();
   const currentProduct = currentMerchant.products.find(
@@ -29,6 +31,10 @@ export default function ProductDetails({ currentMerchant }) {
 
   function handleClick() {
     openModal();
+  }
+
+  function handleReturn() {
+    navigate(`/store/${currentMerchant.id}`);
   }
 
   return (
@@ -59,7 +65,17 @@ export default function ProductDetails({ currentMerchant }) {
                     currentProduct.unitQty
                   )}
                 </p>
-                <button onClick={handleClick}>Add to Cart</button>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    gap: "10px",
+                    placeSelf: "flex-end",
+                  }}
+                >
+                  <button onClick={handleReturn}>Back to Store</button>
+                  <button onClick={handleClick}>Add to Cart</button>
+                </div>
               </div>
             </>
           )}

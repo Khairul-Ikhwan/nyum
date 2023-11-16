@@ -128,7 +128,7 @@ header {
   max-height: 250px;
 
   padding: 20px 3%;
-  gap: 30px;
+  gap: 15px;
 
   display: flex;
   flex-direction: column;
@@ -143,7 +143,7 @@ header {
 }
 
 .menu-drawer.cart {
-  max-height: 400px;
+  max-height: fit-content;
   overflow-x: scroll;
   box-shadow: var(--box-shadow);
 }
@@ -156,6 +156,49 @@ header {
   padding: 0 20%;
 }
 
+.menu-drawer.cart .cart-items {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  overflow: hidden;
+}
+
+.menu-drawer.cart .store-list {
+  padding: 3.5%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  border-radius: 15px;
+}
+
+.menu-drawer.cart .store-items {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-drawer.cart .product-list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  
+}
+
+.menu-drawer.cart .product-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px;
+}
+
+.menu-drawer.cart .product-list::after {
+  content: "";
+  border: .5px var(--dark) solid;
+}
+‹›
 .bobble-group {
   display: flex;
   flex-direction: column;

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import merchantData from "../../merchants.json";
 
 export default function Cart({ className }) {
   const [isVisible, setIsVisible] = useState(false);
@@ -8,7 +9,11 @@ export default function Cart({ className }) {
     const keys = Object.keys(sessionStorage);
     const values = keys.map((key) => {
       const match = key.match(/^cart_(.*)$/);
-      const storeName = match ? match[1] : null;
+      const storeId = match ? match[1] : null;
+      const store = merchantData.merchants.find(
+        (merchant) => merchant.id === storeId
+      );
+      const storeName = store ? store.name : null;
       return { storeName, products: JSON.parse(sessionStorage.getItem(key)) };
     });
 
@@ -57,45 +62,75 @@ export default function Cart({ className }) {
 
   const groupedItems = groupItems(retrievedCart);
 
+  console.log(groupedItems);
+
   return (
     <div className={`menu-drawer cart ${isVisible ? className : ""}`}>
       <h2>Cart</h2>
       {Object.keys(groupedItems).length === 0 ? (
         <p>Cart is empty</p>
       ) : (
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            gap: "10px",
-          }}
-        >
+        <div className="cart-items">
           {Object.keys(groupedItems).map((storeName) => (
-            <div
-              key={storeName}
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: "10px",
-                border: "1px solid black",
-              }}
-            >
+            <span key={storeName} className="store-list">
               <h3>{storeName}</h3>
-              {groupedItems[storeName].map((product, index) => (
-                <div key={`${product.productName}_${index}`}>
-                  <p>{product.productName}</p>
-                  <ul>
-                    {Object.keys(product.quantities).map(
-                      (variant, variantIndex) => (
-                        <li key={`${variant}_${variantIndex}`}>
-                          {variant}: {product.quantities[variant]}
-                        </li>
-                      )
-                    )}
-                  </ul>
-                </div>
-              ))}
-            </div>
+              <div className="product-list-container">
+                {groupedItems[storeName].map((product, index) => (
+                  <div
+                    key={`${product.productName}_${index}`}
+                    className="product-list"
+                  >
+                    <h4>{product.productName}</h4>
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "row",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          gap: "2.5px",
+                        }}
+                      >
+                        {Object.keys(product.quantities).map(
+                          (variant, variantIndex) => (
+                            <div key={`${variant}_${variantIndex}`}>
+                              <p style={{ marginLeft: "10px" }}>
+                                {variant}: {product.quantities[variant]} pc
+                              </p>
+                            </div>
+                          )
+                        )}
+                      </div>
+                      <p style={{ fontStyle: "italic", fontWeight: "500" }}>
+                        - - ${product.price}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                }}
+              >
+                <p>
+                  Store Total: $
+                  {groupedItems[storeName].reduce(
+                    (subtotal, product) => subtotal + product.price,
+                    0
+                  )}
+                </p>
+                <button>Check Out</button>
+              </div>
+            </span>
           ))}
         </div>
       )}
