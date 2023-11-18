@@ -14,7 +14,15 @@ export default function Cart({ className }) {
         (merchant) => merchant.id === storeId
       );
       const storeName = store ? store.name : null;
-      return { storeName, products: JSON.parse(sessionStorage.getItem(key)) };
+      const products = JSON.parse(sessionStorage.getItem(key)) || [];
+
+      // Include storeId at the product level
+      const productsWithId = products.map((product) => ({
+        ...product,
+        storeId,
+      }));
+
+      return { storeId, storeName, products: productsWithId };
     });
 
     setRetrievedCart(values);
@@ -62,7 +70,49 @@ export default function Cart({ className }) {
 
   const groupedItems = groupItems(retrievedCart);
 
-  console.log(groupedItems);
+  function handleDelete(storeId, productName) {
+    const updatedCart = [...retrievedCart];
+    const storeIndex = updatedCart.findIndex(
+      (store) => store.storeId === storeId
+    );
+
+    if (storeIndex !== -1) {
+      const productIndex = updatedCart[storeIndex].products.findIndex(
+        (product) => product.productName === productName
+      );
+
+      if (productIndex !== -1) {
+        const productToDelete = updatedCart[storeIndex].products[productIndex];
+        const updatedProducts = updatedCart[storeIndex].products.filter(
+          (product) => product.productName !== productName
+        );
+
+        // Update session storage only if the correct quantity is deleted
+        if (
+          productToDelete.quantities &&
+          Object.keys(productToDelete.quantities).length > 0
+        ) {
+          // Update session storage
+          sessionStorage.setItem(
+            `cart_${storeId}`,
+            JSON.stringify(updatedProducts)
+          );
+
+          // Update state
+          setRetrievedCart(updatedCart);
+
+          // Check if updatedProducts is empty, remove the entire key
+          if (updatedProducts.length === 0) {
+            sessionStorage.removeItem(`cart_${storeId}`);
+            // Update state again to remove the empty store from the cart
+            setRetrievedCart(
+              updatedCart.filter((store) => store.storeId !== storeId)
+            );
+          }
+        }
+      }
+    }
+  }
 
   return (
     <div className={`menu-drawer cart ${isVisible ? className : ""}`}>
@@ -80,6 +130,14 @@ export default function Cart({ className }) {
                     key={`${product.productName}_${index}`}
                     className="product-list"
                   >
+                    <div
+                      className="cart-delete"
+                      onClick={() =>
+                        handleDelete(product.storeId, product.productName)
+                      }
+                    >
+                      <p>x</p>
+                    </div>
                     <h4>{product.productName}</h4>
                     <div
                       style={{
