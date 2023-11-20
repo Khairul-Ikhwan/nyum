@@ -9,7 +9,7 @@ export default defineConfig({
   server: {
     proxy: {
       // Proxy requests to your Express.js server running at http://localhost:3000
-      '/*': {
+      '/api': {
         target: 'http://localhost:3000',
         changeOrigin: true,
         secure: false,
