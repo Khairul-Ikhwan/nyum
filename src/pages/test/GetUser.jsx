@@ -3,8 +3,8 @@ import { useState, useEffect } from "react";
 
 export default function GetUser() {
   const [users, setUsers] = useState([]);
-  const [userIdInput, setUserIdInput] = useState("");
-  const [cartData, setCartData] = useState([]);
+  const [merchantIdInput, setMerchantIdInput] = useState("");
+  const [merchantData, setMerchantData] = useState([]);
 
   const fetchAllUsers = async () => {
     try {
@@ -29,41 +29,46 @@ export default function GetUser() {
 
       setUsers(usersWithFormattedDate);
     } catch (error) {
-      console.error("Error fetching users:", error);
+      console.log("Error fetching users:", error);
 
       // Log or display the response text for debugging
     }
   };
 
-  const getCart = async () => {
-    try {
-      const response = await fetch("/api/users/get-cart", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          "user-id": userIdInput,
-        },
-      });
+  const handleMerchantIdChange = (event) => {
+    setMerchantIdInput(event.target.value);
+  };
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-      const retrievedCart = await response.json();
-
-      setCartData(retrievedCart);
-      console.log("Cart Data: ", cartData);
-    } catch (error) {
-      console.error("Error fetching user's cart", error);
+  const handleMerchantSubmit = (event) => {
+    event.preventDefault();
+    if (!merchantIdInput) {
+      alert("Why empty da?");
+    } else {
+      getMerchant();
     }
   };
 
-  const handleUserIdChange = (event) => {
-    setUserIdInput(event.target.value);
-  };
+  const getMerchant = async () => {
+    try {
+      const response = await fetch("/api/merchants/get-merchant", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          merchantId: merchantIdInput,
+        }),
+      });
+      if (!response.ok) {
+        throw new Error(`Error fetching merchant: ${response.status}`);
+      }
 
-  const handleSubmit = (event) => {
-    event.preventDefault(); // Prevent default form submission behavior
-    getCart();
+      const foundMerchant = await response.json();
+      setMerchantData(foundMerchant.foundMerchant);
+      console.log("Merchant: ", merchantData);
+    } catch (error) {
+      console.log("Error", error);
+    }
   };
 
   useEffect(() => {
@@ -83,48 +88,25 @@ export default function GetUser() {
           ))}
         </ul>
       </div>
+
       <div>
-        <form onSubmit={handleSubmit}>
+        <h2> Merchant</h2>
+        <form onSubmit={handleMerchantSubmit}>
           <input
-            placeholder="User Id"
-            value={userIdInput}
-            onChange={handleUserIdChange}
-          ></input>
-          <button type="submit">Get Cart</button>
+            placeholder="Merchant Id"
+            value={merchantIdInput}
+            onChange={handleMerchantIdChange}
+          />
+          <button type="submit">Get Merchant</button>
         </form>
-      </div>
-      <div>
-        <h2>User&apos;s Cart</h2>
-        {cartData.cart &&
-        cartData.cart.products &&
-        cartData.cart.products.length > 0 ? (
-          <table
-            style={{
-              width: "100%",
-              textAlign: "center",
-            }}
-          >
-            <thead>
-              <tr>
-                <th>Merchant Name</th>
-                <th>Product Name</th>
-                <th>Variant Name</th>
-                <th>Quantity</th>
-              </tr>
-            </thead>
-            <tbody>
-              {cartData.cart.products.map((product) => (
-                <tr key={product._id}>
-                  <td>{product.merchantName}</td>
-                  <td>{product.productName}</td>
-                  <td>{product.variants[0].variantName}</td>
-                  <td>{product.variants[0].quantity}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+
+        {merchantData || merchantData.length > 0 ? (
+          <div>
+            <p>Merchant ID: {merchantData._id}</p>
+            <p>Merchant Name: {merchantData.storeName}</p>
+          </div>
         ) : (
-          <p>No items in the cart.</p>
+          <p>No merchant data available.</p>
         )}
       </div>
     </Layout>

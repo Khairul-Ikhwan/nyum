@@ -25,3 +25,7 @@ dist-ssr
 
 ### dotenv ###
 .env
+
+
+### secret ###
+mykey.json

@@ -10,10 +10,10 @@ const addMerchant = async (req, res) => {
         const userId = req.headers['user-id'];
         console.log('User Id:', userId);
 
-        const {storeName, country, currency, contact, address } = req.body;
+        const {storeName, country, currency, contact, address, logo_url } = req.body;
         console.log('Request Body:', req.body);
         
-        const newMerchant = new Merchant({ storeName, country, currency, contact, address });
+        const newMerchant = new Merchant({ storeName, country, currency, contact, address, logo_url });
         const updatedUser = await User.findByIdAndUpdate(userId, { store_id: newMerchant._id });
         console.log('Updated User:', updatedUser);
         await newMerchant.save();
@@ -94,6 +94,36 @@ const deleteProduct = async (req, res) => {
     }
 };
 
+const getMerchant = async(req, res) => {
+    const { merchantId } = req.body
+
+    try {
+        const foundMerchant = await Merchant.findById(merchantId);
+
+        if (!foundMerchant) {
+            res.status(400).json({message: "Merchant not found"})
+        }
+
+        res.status(200).json({foundMerchant})
+
+    } catch (error) {
+        console.error('Error finding merchant', error);
+        res.status(500).json({message: "Check Server"})
+    }
+}
+
+const getAll = async(req, res) => {
+    try {
+        const merchants = await Merchant.find();
+        if(!merchants) {
+            res.status(400).json({message: "Error fetching merchants"})
+        }
+        res.status(200).json({merchants});
+    } catch (error) {
+        res.statis(500).json({message: "Server error, check server!"})
+    }
+}
 
 
-export { addMerchant, addProduct, deleteProduct };
+
+export { addMerchant, addProduct, deleteProduct, getMerchant, getAll};

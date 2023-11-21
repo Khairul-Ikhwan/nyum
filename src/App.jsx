@@ -4,7 +4,8 @@ import HomePage from "./pages/homepage/HomePage";
 import Store from "./pages/store/Store";
 import Events from "./pages/events/Events";
 import News from "./pages/news/News";
-import GetUser from "./pages/test/GetUser";
+import UploadStoreLogos from "./pages/test/UploadStoreLogos";
+import UserSignUp from "./components/ui/user/UserSignUp";
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
         <Route path="store/:id/*" element={<Store />} />
         <Route path="events/*" element={<Events />} />
         <Route path="news/*" element={<News />} />
-        <Route path="test" element={<GetUser />} />
+        <Route path="test" element={<UploadStoreLogos />} />
+        <Route path="sign-up/*" element={<UserSignUp />} />
       </Routes>
     </>
   );

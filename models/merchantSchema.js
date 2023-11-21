@@ -5,6 +5,7 @@ import Product from "./productSchema.js";
 const merchantSchema = new mongoose.Schema({
     _id: { type: String, default: uuidv4 },
     storeName: { type: String, required: true },
+    logo_url: {type: String},
     created_date: { type: Date, default: Date.now },
     country: { type: String },
     currency: { type: String },
